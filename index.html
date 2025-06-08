@@ -1,14 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Good Vibes Roatan</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0; padding: 0; background: #f0f8ff;
+      color: #333;
+    }
+    header {
+      background: #0099cc;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+    }
+    header p {
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      border-bottom: 2px solid #0099cc;
+      padding-bottom: 0.5rem;
+      color: #007799;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+    ul li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #0099cc;
+      font-weight: bold;
+    }
+    a.button {
+      background-color: #0099cc;
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-top: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    a.button:hover {
+      background-color: #007799;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+      background: #e0f0ff;
+    }
+    /* WhatsApp Chat Button bottom right */
+    #whatsapp-chat {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      cursor: pointer;
+      z-index: 1000;
+    }
+    #whatsapp-chat svg {
+      fill: white;
+      width: 32px;
+      height: 32px;
+    }
+    /* Responsive iframe */
+    .calendar-container {
+      position: relative;
+      padding-bottom: 75%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .calendar-container iframe {
+      position: absolute;
+      top:0; left: 0; width: 100%; height: 100%;
+      border: none;
+      border-radius: 8px;
+    }
+  </style>
 </head>
-<body style="font-family: sans-serif; text-align: center; padding: 2rem;">
-  <h1>Welcome to Good Vibes Roatan!</h1>
-  <p>Relax and unwind at our private hilltop retreat.</p>
-  <p>Choose from our two comfortable rental units – perfect for your island stay.</p>
-  <p>More info coming soon. 🌴</p>
+<body>
+
+<header>
+  <h1>Good Vibes Roatan</h1>
+  <p>Your peaceful island getaway</p>
+</header>
+
+<main>
+  <section id="about">
+    <h2>About the House</h2>
+    <p>We offer two private, one-bedroom units for rent — solar powered, off-grid with battery backup and generator. Enjoy natural breezes in a private setting just a short walk to West End’s Half Moon Bay. Conveniently located near shops, dive centers, and restaurants.</p>
+  </section>
+
+  <section id="units">
+    <h2>Our Units</h2>
+    <ul>
+      <li><strong>Upstairs One-Bedroom Apartment:</strong> Spacious and bright with full kitchen, queen bed, and stunning views of West End and Mangrove Bight.</li>
+      <li><strong>Downstairs One-Bedroom Efficiency:</strong> Cozy and private with kitchenette, queen bed, and peaceful forest surroundings.</li>
+    </ul>
+  </section>
+
+  <section id="amenities">
+    <h2>Amenities</h2>
+    <ul>
+      <li>Solar-powered with battery & backup generator</li>
+      <li>Hot water & Wi-Fi</li>
+      <li>Ceiling fans and personal fans</li>
+      <li>Outdoor seating including hammock and patio</li>
+      <li>Short walk to Half Moon Bay beach</li>
+    </ul>
+  </section>
+
+  <section id="booking">
+    <h2>Book Your Stay</h2>
+    <p>Check availability and book your stay hassle-free with our online calendar below.</p>
+    <div class="calendar-container">
+      <!-- Replace the src URL below with your actual Calendly embed link -->
+      <iframe src="https://calendly.com/embed/your-calendly-username/30min" allowtransparency="true"></iframe>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact & Booking</h2>
+    <p>For questions or direct booking, reach out on WhatsApp:</p>
+    <a href="https://wa.me/50432436262" class="button" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+  </section>
+</main>
+
+<!-- WhatsApp chat button bottom right -->
+<div id="whatsapp-chat" onclick="window.open('https://wa.me/50432436262','_blank')">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M20.52 3.48A11.78 11.78 0 0012 0a11.88 11.88 0 00-10.4 17.3L0 24l6.92-1.8A11.8 11.8 0 0024 12c0-3.18-1.24-6.17-3.48-8.52zm-8.5 17.36a9.72 9.72 0 01-4.92-1.38l-.35-.22-4.1 1.06 1.1-4.01-.22-.36a9.63 9.63 0 011.42-11.64 9.68 9.68 0 0113.69 0 9.63 9.63 0 011.52 11.55 9.69 9.69 0 01-8.46 3.0zM16.45 14.3c-.26-.13-1.55-.77-1.79-.86-.24-.1-.42-.13-.6.13s-.7.86-.85 1.04c-.15.18-.3.2-.56.07a6.47 6.47 0 01-1.9-1.17 7.26 7.26 0 01-1.34-1.65c-.14-.24-.02-.37.11-.5.12-.12.26-.3.4-.44.13-.14.17-.24.26-.4.09-.16.05-.3-.02-.43-.08-.13-.6-1.43-.82-1.96-.22-.52-.44-.45-.6-.46-.16 0-.35 0-.54 0a1.1 1.1 0 00-.83.4 3.5 3.5 0 00-1.3 3.06 6.85 6.85 0 003.14 4.65 12.2 12.2 0 005.18 2.17 4.95 4.95 0 002.2.19 4.25 4.25 0 001.29-.88 4.92 4.92 0 001.55-3.03c.01-.12.01-.24.01-.36 0-.12-.03-.2-.1-.28-.07-.08-.25-.19-.5-.32z"/>
+  </svg>
+</div>
+
+<footer>
+  &copy; 2025 Good Vibes Roatan. All rights reserved.
+</footer>
+
 </body>
 </html>
