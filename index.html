@@ -116,19 +116,22 @@
       Message Us on WhatsApp
     </a>
 
-    <div class="section">
-      <h2>Reserve Your Stay</h2>
-      <p>$75/night, 3-night minimum stay. A $100 non-refundable deposit secures your booking. Final payment upon arrival.</p>
-      <div class="paypal">
-        <form action="https://www.paypal.com/donate" method="post" target="_blank">
-          <input type="hidden" name="business" value="williamblackbeardthepirate@gmail.com" />
-          <input type="hidden" name="currency_code" value="USD" />
-          <input type="hidden" name="amount" value="100.00" />
-          <input type="hidden" name="item_name" value="Deposit for House of Good Vibes" />
-          <button type="submit">Pay $100 Deposit via PayPal</button>
-        </form>
-      </div>
-    </div>
+   <section id="booking-deposit" style="text-align: center; padding: 2em 1em; background-color: #f0f0f0;">
+  <h2>Secure Your Stay</h2>
+  <p>We require a $100 USD non-refundable deposit to confirm your reservation. The remaining balance will be arranged directly with us.</p>
+  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top: 1em;">
+    <input type="hidden" name="cmd" value="_xclick">
+    <input type="hidden" name="business" value="williamblackbeardthepirate@gmail.com">
+    <input type="hidden" name="item_name" value="Booking Deposit - House of Good Vibes">
+    <input type="hidden" name="amount" value="100.00">
+    <input type="hidden" name="currency_code" value="USD">
+    <input type="hidden" name="no_shipping" value="1">
+    <input type="hidden" name="return" value="https://yourwebsite.com/thank-you.html">
+    <input type="hidden" name="cancel_return" value="https://yourwebsite.com">
+    <input type="submit" value="Pay $100 Booking Deposit" style="padding: 12px 24px; font-size: 16px; background-color: #ffc439; border: none; color: #111; border-radius: 6px; cursor: pointer;">
+  </form>
+</section>
+
 
     <div class="section">
       <h2>Contact Us</h2>
