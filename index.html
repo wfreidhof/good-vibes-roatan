@@ -297,6 +297,137 @@
   // Initialize game on load
   startGame();
 </script>
+<!-- Tropical Fruit Catcher Game -->
+<section id="fruit-catcher" style="padding: 20px; background: #fff3e0; margin-top: 50px; border-radius: 10px; text-align: center; font-family: 'Arial', sans-serif;">
+  <h2 style="color: #ef6c00;">Catch the Tropical Fruits!</h2>
+  <p style="color: #bf360c;">Use ← and → arrow keys to move the basket. Catch as many fruits as you can!</p>
+
+  <canvas id="catcher-canvas" width="320" height="240" style="background: #a5d6a7; border: 3px solid #66bb6a; border-radius: 10px; display: block; margin: 0 auto;"></canvas>
+
+  <p id="score-display" style="font-size: 20px; color: #2e7d32; margin-top: 10px;">Score: 0</p>
+
+  <button id="catcher-reset" style="
+    padding: 8px 20px;
+    background-color: #388e3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  ">Restart Game</button>
+</section>
+
+<script>
+  const canvas = document.getElementById('catcher-canvas');
+  const ctx = canvas.getContext('2d');
+  const scoreDisplay = document.getElementById('score-display');
+  const resetBtn = document.getElementById('catcher-reset');
+
+  const basketWidth = 60;
+  const basketHeight = 20;
+  let basketX = (canvas.width - basketWidth) / 2;
+
+  const fruits = ['🍍', '🥥', '🍌', '🥭', '🍉'];
+  let fallingFruits = [];
+  let score = 0;
+  let gameInterval;
+  let fruitDropInterval;
+  let leftPressed = false;
+  let rightPressed = false;
+
+  function drawBasket() {
+    ctx.fillStyle = '#6d4c41';
+    ctx.fillRect(basketX, canvas.height - basketHeight - 10, basketWidth, basketHeight);
+    ctx.font = '24px serif';
+    ctx.fillText('🧺', basketX + basketWidth/2 - 12, canvas.height - basketHeight - 12);
+  }
+
+  function createFruit() {
+    const fruit = {
+      x: Math.random() * (canvas.width - 24),
+      y: -24,
+      emoji: fruits[Math.floor(Math.random() * fruits.length)],
+      speed: 2 + Math.random() * 2
+    };
+    fallingFruits.push(fruit);
+  }
+
+  function drawFruits() {
+    ctx.font = '24px serif';
+    fallingFruits.forEach(fruit => {
+      ctx.fillText(fruit.emoji, fruit.x, fruit.y);
+    });
+  }
+
+  function updateFruits() {
+    for (let i = 0; i < fallingFruits.length; i++) {
+      fallingFruits[i].y += fallingFruits[i].speed;
+
+      // Check if fruit hits basket
+      if (
+        fallingFruits[i].y > canvas.height - basketHeight - 30 &&
+        fallingFruits[i].x > basketX - 12 &&
+        fallingFruits[i].x < basketX + basketWidth
+      ) {
+        score++;
+        fallingFruits.splice(i, 1);
+        i--;
+        scoreDisplay.textContent = `Score: ${score}`;
+      }
+      // Remove fruit if it falls off screen
+      else if (fallingFruits[i].y > canvas.height) {
+        fallingFruits.splice(i, 1);
+        i--;
+      }
+    }
+  }
+
+  function clearCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+
+  function moveBasket() {
+    if (leftPressed && basketX > 0) {
+      basketX -= 5;
+    }
+    if (rightPressed && basketX < canvas.width - basketWidth) {
+      basketX += 5;
+    }
+  }
+
+  function gameLoop() {
+    clearCanvas();
+    moveBasket();
+    drawBasket();
+    updateFruits();
+    drawFruits();
+  }
+
+  function startGame() {
+    score = 0;
+    scoreDisplay.textContent = `Score: ${score}`;
+    fallingFruits = [];
+    basketX = (canvas.width - basketWidth) / 2;
+    clearInterval(gameInterval);
+    clearInterval(fruitDropInterval);
+    gameInterval = setInterval(gameLoop, 30);
+    fruitDropInterval = setInterval(createFruit, 1200);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') leftPressed = true;
+    if (e.key === 'ArrowRight') rightPressed = true;
+  });
+
+  document.addEventListener('keyup', (e) => {
+    if (e.key === 'ArrowLeft') leftPressed = false;
+    if (e.key === 'ArrowRight') rightPressed = false;
+  });
+
+  resetBtn.addEventListener('click', startGame);
+
+  startGame();
+</script>
 
 
 </body>
