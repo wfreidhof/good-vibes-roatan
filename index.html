@@ -98,6 +98,77 @@
       color: #3e7a63;
       margin-top: 0.5rem;
     }
+    .calendar table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+    .calendar th, .calendar td {
+      padding: 0.5rem 0.3rem;
+      border: 1px solid #a0c8bb;
+    }
+    .calendar th {
+      background-color: #247a6b;
+      color: white;
+      font-weight: 700;
+    }
+    .calendar td.available {
+      background-color: #a0d9c8;
+      color: #1b4d3a;
+      font-weight: 600;
+    }
+    .calendar td.unavailable {
+      background-color: #f2f2f2;
+      color: #999;
+    }
+
+    /* Booking form styling */
+    form {
+      background: #e6f2ef;
+      border-radius: 10px;
+      max-width: 720px;
+      margin: 3rem auto 0;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 4px 8px rgba(36, 122, 107, 0.2);
+    }
+    form h3 {
+      margin-top: 0;
+      color: #174c43;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+    form label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #174c43;
+    }
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1.5px solid #247a6b;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+    }
+    form button {
+      background-color: #247a6b;
+      color: white;
+      font-weight: 700;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+    form button:hover {
+      background-color: #1b5947;
+    }
 
     /* WhatsApp floating button */
     .whatsapp-float {
@@ -151,6 +222,9 @@
         padding: 1rem 1rem 3rem;
       }
       .calendar {
+        padding: 1rem 1.2rem;
+      }
+      form {
         padding: 1rem 1.2rem;
       }
       .whatsapp-float {
@@ -223,7 +297,55 @@
       <h3>Availability Calendar</h3>
       <p>We have a spot for you anytime — no need to worry about dates or complicated bookings!</p>
       <p class="note">Contact us directly through WhatsApp to confirm your preferred stay.</p>
+
+      <table aria-describedby="availability-note">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Availability</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>January</td><td class="available">Available</td></tr>
+          <tr><td>February</td><td class="available">Available</td></tr>
+          <tr><td>March</td><td class="available">Available</td></tr>
+          <tr><td>April</td><td class="available">Available</td></tr>
+          <tr><td>May</td><td class="available">Available</td></tr>
+          <tr><td>June</td><td class="available">Available</td></tr>
+          <tr><td>July</td><td class="available">Available</td></tr>
+          <tr><td>August</td><td class="available">Available</td></tr>
+          <tr><td>September</td><td class="available">Available</td></tr>
+          <tr><td>October</td><td class="available">Available</td></tr>
+          <tr><td>November</td><td class="available">Available</td></tr>
+          <tr><td>December</td><td class="available">Available</td></tr>
+        </tbody>
+      </table>
     </section>
+
+    <section aria-labelledby="booking-form">
+      <form
+        action="https://formspree.io/f/myformid"
+        method="POST"
+        id="booking-form"
+      >
+        <h3>Book Your Stay / Ask a Question</h3>
+
+        <label for="name">Full Name*</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required />
+
+        <label for="email">Email Address*</label>
+        <input type="email" id="email" name="_replyto" placeholder="you@example.com" required />
+
+        <label for="phone">Phone or WhatsApp Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="+504 1234 5678" />
+
+        <label for="message">Message / Dates Interested</label>
+        <textarea id="message" name="message" rows="4" placeholder="Tell us your preferred dates or questions"></textarea>
+
+        <button type="submit">Send Booking Request</button>
+      </form>
+    </section>
+
   </main>
 
   <!-- WhatsApp Contact Button -->
