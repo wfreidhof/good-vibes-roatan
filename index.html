@@ -1,126 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Good Vibes House Roatan</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Good Vibes Roatan - Hilltop Jungle Retreat</title>
   <style>
+    /* Reset & basics */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
     body {
-      font-family: 'Poppins', sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #fdfdfd;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fdf9f2;
       color: #333;
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
-
-    header {
-      background-color: #2ab7ca;
-      color: white;
-      padding: 2rem;
-      text-align: center;
+    a {
+      color: #247a6b;
+      text-decoration: none;
     }
-
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 2rem;
+    a:hover {
+      text-decoration: underline;
     }
-
+    h1, h2, h3 {
+      font-weight: 700;
+      color: #174c43;
+    }
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
     h2 {
-      color: #2ab7ca;
+      font-size: 1.8rem;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid #247a6b;
+      padding-bottom: 0.3rem;
+      letter-spacing: 0.03em;
     }
-
-    .card {
-      background: white;
-      padding: 1.5rem;
+    p {
+      max-width: 720px;
+      margin-bottom: 1.2rem;
+      font-size: 1.1rem;
+    }
+    ul {
+      max-width: 720px;
+      margin-left: 1.2rem;
       margin-bottom: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      list-style-type: disc;
     }
 
-    .whatsapp-btn {
+    /* Container */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    /* Highlight */
+    .highlight {
+      color: #247a6b;
+      font-weight: 600;
+    }
+
+    /* Deck & bonfire section style */
+    .deck-bonfire {
+      font-style: italic;
+      color: #5a5a5a;
+      margin-bottom: 2rem;
+    }
+
+    /* Static calendar styling */
+    .calendar {
+      background: #e6f2ef;
+      border-radius: 10px;
+      padding: 1.5rem 2rem;
+      max-width: 720px;
+      margin: 3rem auto;
+      box-shadow: 0 4px 8px rgba(36, 122, 107, 0.2);
+    }
+    .calendar h3 {
+      color: #174c43;
+      margin-top: 0;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+    .calendar p {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+    }
+    .calendar .note {
+      font-style: italic;
+      color: #3e7a63;
+      margin-top: 0.5rem;
+    }
+
+    /* WhatsApp floating button */
+    .whatsapp-float {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      width: 60px;
+      height: 60px;
+      bottom: 30px;
+      right: 30px;
       background-color: #25d366;
       color: white;
-      padding: 1rem 1.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      border-radius: 50%;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+    .whatsapp-float:hover {
+      background-color: #1ebe57;
+    }
+    .whatsapp-icon {
+      line-height: 60px;
     }
 
+    /* Footer */
     footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #ccc;
+      font-size: 0.9rem;
+      color: #777;
       text-align: center;
-      font-size: 0.9em;
-      padding: 1rem;
-      color: #aaa;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      p, ul {
+        font-size: 1rem;
+      }
+      .container {
+        padding: 1rem 1rem 3rem;
+      }
+      .calendar {
+        padding: 1rem 1.2rem;
+      }
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        bottom: 20px;
+        right: 20px;
+      }
+      .whatsapp-icon {
+        line-height: 50px;
+      }
     }
   </style>
 </head>
 <body>
+  <main class="container" role="main">
+    <h1>Welcome to Your Hilltop Jungle Retreat</h1>
+    <p>
+      Perched on a peaceful hilltop and nestled within 3 acres of lush, maintained jungle, our two private 1-bedroom units offer a perfect blend of seclusion and convenience. Each unit has its own kitchen and bathroom, natural breezes, and is solar powered with a battery system and back-up generator.
+    </p>
+    <p class="deck-bonfire">
+      Step out onto the spacious covered deck surrounded by greenery, or gather around the cozy bonfire and grilling area for relaxing evenings under the stars.
+    </p>
+    <p>
+      Just a short walk from West End’s beautiful Half Moon Bay, you’ll feel right at home in this serene tropical setting.
+    </p>
 
-  <header>
-    <h1>Good Vibes Roatan</h1>
-    <p>Discover your peaceful, eco-friendly island getaways</p>
-  </header>
+    <section aria-labelledby="things-to-do">
+      <h2 id="things-to-do">Things to Do on Roatan — All Moments Away</h2>
+      <ul>
+        <li>Explore the vibrant coral reefs with snorkeling and scuba diving</li>
+        <li>Relax on the white sandy beaches of West End and Half Moon Bay</li>
+        <li>Discover local culture and crafts at the artisan markets</li>
+        <li>Enjoy fresh seafood and tropical cuisine at nearby restaurants</li>
+        <li>Take a boat tour to see dolphins, turtles, and island wildlife</li>
+        <li>Zip through the jungle canopy at South Shore Zip Line</li>
+        <li>Experience lively nightlife with bars and live music venues</li>
+        <li>Hike through jungle trails and enjoy panoramic island views</li>
+        <li>Sip a cold drink at the world-famous <span class="highlight">Sundowner’s Beach Bar</span> — where I play live music every Tuesday evening for <span class="highlight">Taco Tunesday</span></li>
+      </ul>
+    </section>
 
-  <div class="container">
-         <h2>About the Property</h2>
+    <section aria-labelledby="local-experience">
+      <h2 id="local-experience">Experience Roatan Like a Local</h2>
       <p>
-        Nestled in 3 acres of maintained jungle, our two private 1-bedroom units offer a quiet, natural vibe just a short walk from Half Moon Bay in West End. Each unit has its own kitchen and bathroom, natural breezes, solar power with battery backup, and access to a spacious shared porch with jungle views.
+        We’ve lived on Roatan for over a decade, and my wife’s family is from the island. We know the community and most local tour operators personally, and we’re happy to help you arrange any experience you’re dreaming of — whether it’s a <span class="highlight">guided fly fishing trip</span> with my brother-in-law, who knows these waters like the back of his hand, or simply pointing you toward <span class="highlight">the perfect dive shop or tucked-away local restaurant</span>.
+      </p>
+      <p>
+        Want to give back while you’re here? Help is always welcomed at the <span class="highlight">West End Community Center</span>, a small local nonprofit doing meaningful work with children and families in the area. Just ask us how you can get involved.
       </p>
     </section>
 
-    <section class="card">
-      <h2>Availability</h2>
-      <p>We always keep a spot for you! Just reach out — and we’ll handle the rest.</p>
-      <p>Booking is easy and personalized.</p>
+    <section aria-labelledby="good-vibes-house">
+      <h2 id="good-vibes-house">The House of Good Vibes</h2>
+      <p>
+        Here, you’ll find more than just a place to stay.
+      </p>
+      <ul>
+        <li>Want to play some music? We might be able to lend you an instrument.</li>
+        <li>Feeling inspired to paint? We can set you up with a canvas.</li>
+        <li>Hosting an intimate jam night? It’s a real possibility.</li>
+      </ul>
+      <p>
+        This is a space to unwind, to connect, and to experience Roatan like no other.
+      </p>
     </section>
 
-    <section class="card">
-      <h2>How to Book</h2>
-      <p>Message us directly via WhatsApp. We’ll confirm availability, answer questions, and get you set up for a stress-free stay. No Whatsapp? Fill out our form and we will be in touch!</p>
+    <section class="calendar" aria-label="Static Availability Calendar">
+      <h3>Availability Calendar</h3>
+      <p>We have a spot for you anytime — no need to worry about dates or complicated bookings!</p>
+      <p class="note">Contact us directly through WhatsApp to confirm your preferred stay.</p>
     </section>
-     <section class="card">
-  <h2>Request a Booking</h2>
-  <form action="https://formspree.io/f/mgvyaayj" method="POST">
-    <label>
-      Your Name<br>
-      <input type="text" name="name" required>
-    </label><br><br>
+  </main>
 
-    <label>
-      Email Address<br>
-      <input type="email" name="email" required>
-    </label><br><br>
-
-    <label>
-      Preferred Dates<br>
-      <input type="text" name="dates" placeholder="June 10–15, 2025" required>
-    </label><br><br>
-
-    <label>
-      Message or Questions<br>
-      <textarea name="message" rows="4" required></textarea>
-    </label><br><br>
-
-    <button type="submit">Send Request</button>
-  </form>
-</section>
-
-    <section class="card">
-
-  </div>
-
-  <a href="https://wa.me/50432436262" class="whatsapp-btn" target="_blank">Message Us</a>
+  <!-- WhatsApp Contact Button -->
+  <a
+    href="https://wa.me/50432436262"
+    class="whatsapp-float"
+    aria-label="Chat with us on WhatsApp"
+    target="_blank"
+    rel="noopener"
+  >
+    <span class="whatsapp-icon">📱</span>
+  </a>
 
   <footer>
-    &copy; 2025 Good Vibes Roatan. All rights reserved.
+    <p>© 2025 Good Vibes Roatan. All rights reserved.</p>
   </footer>
-
 </body>
 </html>
