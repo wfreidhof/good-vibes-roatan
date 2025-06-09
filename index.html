@@ -3,184 +3,178 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Good Vibes House Roatan | Private Units for Rent</title>
+  <title>Good Vibes House Roatan - Private One-Bedroom Units for Rent</title>
   <style>
-    /* Reset and base */
+    /* Reset & basics */
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      background: #f5f9f7;
-      color: #2c3e50;
-      line-height: 1.6;
-      padding: 0 1rem;
+      margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f2f9f7; color: #2a2a2a; line-height: 1.6;
     }
-    header {
-      background: #4caf50;
-      color: white;
-      padding: 1.5rem 1rem;
+    h1, h2 {
+      color: #27ae60;
       text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    }
-    header h1 {
-      margin: 0;
-      font-weight: 700;
-      font-size: 2rem;
-      letter-spacing: 2px;
+      margin-top: 1.5rem;
     }
     main {
       max-width: 900px;
-      margin: 2rem auto 4rem auto;
-    }
-    section {
-      margin-bottom: 3rem;
-    }
-    h2 {
-      color: #27ae60;
-      margin-bottom: 0.75rem;
-      border-bottom: 2px solid #27ae60;
-      padding-bottom: 0.25rem;
+      margin: 1rem auto 3rem;
+      padding: 0 1rem;
     }
     p {
+      max-width: 720px;
+      margin: 0.7rem auto;
       font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-    ul {
-      list-style-type: disc;
-      padding-left: 1.25rem;
-      margin-bottom: 1rem;
-    }
-    ul li {
-      margin-bottom: 0.5rem;
-    }
-    /* Calendar iframe styling */
-    .calendar-container {
-      width: 100%;
-      height: 600px;
-      border: none;
-      margin-top: 1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      border-radius: 8px;
-    }
-    /* Contact form styling */
-    form {
-      background: #eaf7ea;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-      max-width: 500px;
-      margin: 0 auto;
-    }
-    label {
-      display: block;
-      margin-bottom: 0.3rem;
-      font-weight: 600;
-      color: #2d6a33;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-      border: 1px solid #a5d6a7;
-      border-radius: 4px;
-      font-size: 1rem;
-      resize: vertical;
-    }
-    button {
-      background: #27ae60;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 4px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    button:hover {
-      background: #1e8449;
-    }
-    /* Footer */
-    footer {
       text-align: center;
-      padding: 1rem;
-      color: #777;
-      font-size: 0.9rem;
-      border-top: 1px solid #ddd;
     }
+    section {
+      margin: 2.5rem 0;
+    }
+
+    /* Units description */
+    .units {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .unit {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 1.2rem 1rem;
+      width: 280px;
+      text-align: center;
+    }
+    .unit h3 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+    .unit ul {
+      list-style: none;
+      padding-left: 0;
+      text-align: left;
+      font-size: 1rem;
+    }
+    .unit ul li {
+      margin-bottom: 0.5rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+    .unit ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #27ae60;
+      font-weight: bold;
+    }
+
+    /* Availability calendar table */
+    table {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      border-collapse: collapse;
+      font-size: 1.1rem;
+    }
+    thead tr {
+      background-color: #27ae60;
+      color: white;
+    }
+    th, td {
+      padding: 0.6rem 0.8rem;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #e9f5f1;
+    }
+    .available {
+      color: green;
+      font-weight: 600;
+    }
+    .booked {
+      color: #cc0000;
+      font-weight: 600;
+    }
+
+    /* WhatsApp button */
+    .whatsapp-btn {
+      display: block;
+      width: fit-content;
+      margin: 2rem auto 0;
+      background-color: #25D366;
+      color: white;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.3rem;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.5);
+      transition: background-color 0.3s ease;
+    }
+    .whatsapp-btn:hover {
+      background-color: #1da851;
+    }
+
     /* Responsive */
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.5rem;
+    @media (max-width: 620px) {
+      .units {
+        flex-direction: column;
+        align-items: center;
       }
-      main {
-        margin: 1rem auto 2rem auto;
-        padding: 0 0.5rem;
+      .unit {
+        width: 90%;
       }
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>Good Vibes House Roatan</h1>
-    <p>Private One-Bedroom Units for Rent — Your Tropical Escape Awaits</p>
-  </header>
-
   <main>
+    <h1>Good Vibes House Roatan</h1>
+    <p>Two Private One-Bedroom Units for Rent — Off-Grid Solar Powered, Surrounded by Nature</p>
 
-    <section id="about">
-      <h2>About the Property</h2>
-      <p>
-        Nestled on a peaceful hillside just a short walk to West End's famous Half Moon Bay, our property offers two private one-bedroom units — each with its own kitchen and bathroom for your complete comfort and privacy.
-      </p>
-      <p>
-        Enjoy access to a huge shared porch overlooking 3 acres of lush, maintained jungle that creates an amazing park-like atmosphere with natural breezes and stunning views.
-      </p>
-      <p>
-        Both units are fully solar powered, off-grid with battery storage and backup generator, combining eco-friendly living with all the comforts you need.
-      </p>
-    </section>
-
-    <section id="units">
-      <h2>Our Units</h2>
-      <ul>
-        <li>Two private, one-bedroom units available for individual rental</li>
-        <li>Each unit has a fully equipped kitchen and private bathroom</li>
-        <li>Large porch for relaxing and enjoying Roatan's breezes</li>
-        <li>Natural breezes and tranquil jungle surroundings</li>
-        <li>Convenient location — minutes from beaches, restaurants, and local attractions</li>
-      </ul>
+    <section>
+      <h2>About the Units</h2>
+      <div class="units">
+        <div class="unit">
+          <h3>Unit One</h3>
+          <ul>
+            <li>Private one-bedroom unit with queen-sized bed</li>
+            <li>Full kitchen and private bathroom</li>
+            <li>Natural ocean breezes, no air conditioning needed</li>
+            <li>Access to a huge shared porch overlooking 3 acres of maintained jungle</li>
+            <li>Solar powered with battery backup and generator</li>
+            <li>Short, peaceful walk to West End’s Half Moon Bay</li>
+          </ul>
+        </div>
+        <div class="unit">
+          <h3>Unit Two</h3>
+          <ul>
+            <li>Private one-bedroom unit with queen-sized bed</li>
+            <li>Full kitchen and private bathroom</li>
+            <li>Natural ocean breezes, no air conditioning needed</li>
+            <li>Access to a huge shared porch overlooking 3 acres of maintained jungle</li>
+            <li>Solar powered with battery backup and generator</li>
+            <li>Short, peaceful walk to West End’s Half Moon Bay</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section id="availability">
-      <h2>Check Availability & Book</h2>
-      <!-- Replace the iframe src below with your actual Calendly (or other) embed link -->
-      <iframe class="calendar-container" src="https://calendly.com/yourusername/30min" allowtransparency="true" frameborder="0"></iframe>
-    </section>
-
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
-        <label for="name">Full Name</label>
-        <input id="name" name="name" type="text" required />
-
-        <label for="email">Email Address</label>
-        <input id="email" name="email" type="email" required />
-
-        <label for="message">Message or Questions</label>
-        <textarea id="message" name="message" rows="5" placeholder="Let us know how we can help!"></textarea>
-
-        <button type="submit">Send Message</button>
-      </form>
-      <p style="text-align:center; margin-top: 1rem; font-size: 0.9rem; color: #555;">
-        Or WhatsApp us at <a href="https://wa.me/50432436262" target="_blank" rel="noopener" style="color:#27ae60;">+504 3243 6262</a>
-      </p>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>© 2025 Good Vibes House Roatan — Peace, Privacy & Paradise</p>
-  </footer>
-
-</body>
-</html>
+      <h2>Availability Calendar</h2>
+      <p>Dates marked <span class="available">Available</span> are open for booking, while <span class="booked">Booked</span> dates are taken.</p>
+      <table aria-label="Availability calendar">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Dates</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>June 2025</td>
+            <td><span class="available">1-10</span>, <span class="booked">11-15</span>, <span class="available">16-30</span></td>
+          </tr>
+          <tr>
+            <td>July 2025</td>
