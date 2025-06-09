@@ -3,12 +3,178 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Good Vibes House Roatan - Private One-Bedroom Units for Rent</title>
+  <title>Good Vibes House Roatan</title>
   <style>
     body {
-      margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f2f9f7; color: #2a2a2a; line-height: 1.6;
+      margin: 0; padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0fdf8;
+      color: #333;
+      line-height: 1.6;
     }
-    h1, h2 {
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #2ecc71;
+      color: white;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    h2 {
       color: #27ae60;
-      text-align
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .unit-info {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .unit-info ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+    }
+    .unit-info li {
+      margin-bottom: 0.8rem;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .unit-info li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #27ae60;
+      font-weight: bold;
+    }
+    .calendar {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .calendar table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    .calendar th, .calendar td {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    .calendar td.available {
+      background-color: #d4fcd2;
+      color: #2e7d32;
+      font-weight: bold;
+    }
+    .whatsapp-btn {
+      display: block;
+      width: fit-content;
+      margin: 2rem auto 0;
+      background-color: #25D366;
+      color: white;
+      padding: 14px 30px;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.5);
+      transition: background-color 0.3s ease;
+    }
+    .whatsapp-btn:hover {
+      background-color: #1ebc5c;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #ecf0f1;
+      font-size: 0.9rem;
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      text-align: center;
+      font-size: 28px;
+      line-height: 60px;
+      z-index: 999;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Good Vibes House Roatan</h1>
+    <p>Private one-bedroom jungle units powered by the sun — walk to the beach, relax on the porch</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>About the Units</h2>
+      <div class="unit-info">
+        <p>We offer two private one-bedroom units, each with its own kitchen and bath. Both open onto a huge shared porch and overlook 3 acres of peaceful, park-like jungle. Perfectly located just a short walk from Half Moon Bay in West End.</p>
+        <ul>
+          <li>Private kitchen and bathroom in each unit</li>
+          <li>Queen-sized beds</li>
+          <li>Off-grid solar power with battery backup and generator</li>
+          <li>Natural breezes — no need for A/C</li>
+          <li>3 acres of private, maintained jungle</li>
+          <li>Short walk to beach, dining, and shops</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Availability</h2>
+      <p style="text-align: center; font-size: 1.2rem; font-weight: 600; color: #27ae60;">We have a spot for you anytime — just reach out to book!</p>
+      <div class="calendar">
+        <p>June 2025</p>
+        <table>
+          <tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>
+          <tr><td class="available">1</td><td class="available">2</td><td class="available">3</td><td class="available">4</td><td class="available">5</td><td class="available">6</td><td class="available">7</td></tr>
+          <tr><td class="available">8</td><td class="available">9</td><td class="available">10</td><td class="available">11</td><td class="available">12</td><td class="available">13</td><td class="available">14</td></tr>
+          <tr><td class="available">15</td><td class="available">16</td><td class="available">17</td><td class="available">18</td><td class="available">19</td><td class="available">20</td><td class="available">21</td></tr>
+          <tr><td class="available">22</td><td class="available">23</td><td class="available">24</td><td class="available">25</td><td class="available">26</td><td class="available">27</td><td class="available">28</td></tr>
+          <tr><td class="available">29</td><td class="available">30</td><td></td><td></td><td></td><td></td><td></td></tr>
+        </table>
+      </div>
+      <a href="https://wa.me/50432436262" target="_blank" class="whatsapp-btn">📲 Book Now on WhatsApp</a>
+    </section>
+
+    <section>
+      <h2>Questions?</h2>
+      <p>Message us on WhatsApp with any questions or to reserve your stay.</p>
+      <p><strong>+504 3243 6262</strong></p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Good Vibes House Roatan · All rights reserved
+  </footer>
+
+  <a href="https://wa.me/50432436262" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">💬</a>
+</body>
+</html>
