@@ -3,364 +3,339 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Good Vibes Roatan - Hilltop Jungle Retreat</title>
+  <title>Good Vibes Roatan - Your Private Jungle Escape</title>
   <style>
-    /* Reset & basics */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
+    /* Reset & base */
     body {
-      margin: 0;
+      margin: 0; 
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fdf9f2;
-      color: #333;
+      background: #f4f9f7;
+      color: #1b4d3a;
       line-height: 1.6;
-      scroll-behavior: smooth;
-    }
-    a {
-      color: #247a6b;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    h1, h2, h3 {
-      font-weight: 700;
-      color: #174c43;
-    }
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.05em;
-    }
-    h2 {
-      font-size: 1.8rem;
-      margin-top: 3rem;
-      margin-bottom: 1rem;
-      border-bottom: 3px solid #247a6b;
-      padding-bottom: 0.3rem;
-      letter-spacing: 0.03em;
-    }
-    p {
-      max-width: 720px;
-      margin-bottom: 1.2rem;
-      font-size: 1.1rem;
-    }
-    ul {
-      max-width: 720px;
-      margin-left: 1.2rem;
-      margin-bottom: 1.5rem;
-      list-style-type: disc;
-    }
-
-    /* Container */
-    .container {
+      padding: 1rem;
       max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem 1rem 4rem;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    /* Highlight */
-    .highlight {
+    h1, h2, h3 {
       color: #247a6b;
-      font-weight: 600;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
     }
 
-    /* Deck & bonfire section style */
-    .deck-bonfire {
-      font-style: italic;
-      color: #5a5a5a;
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 0;
+    }
+
+    p {
+      font-size: 1.15rem;
+      margin-bottom: 1.2rem;
+    }
+
+    /* Description section */
+    .description {
+      background: #d4ede6;
+      padding: 1.5rem 2rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
       margin-bottom: 2rem;
     }
 
-    /* Static calendar styling */
+    /* Calendar styles */
     .calendar {
-      background: #e6f2ef;
-      border-radius: 10px;
-      padding: 1.5rem 2rem;
-      max-width: 720px;
-      margin: 3rem auto;
-      box-shadow: 0 4px 8px rgba(36, 122, 107, 0.2);
+      margin-bottom: 2rem;
     }
+
     .calendar h3 {
-      color: #174c43;
-      margin-top: 0;
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      color: #247a6b;
+      text-align: center;
     }
-    .calendar p {
-      font-weight: 600;
-      font-size: 1.1rem;
-      margin-bottom: 0.8rem;
-    }
-    .calendar .note {
-      font-style: italic;
-      color: #3e7a63;
-      margin-top: 0.5rem;
-    }
+
     .calendar table {
       width: 100%;
       border-collapse: collapse;
       text-align: center;
       font-size: 1rem;
       margin-top: 1rem;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
     }
+
     .calendar th, .calendar td {
-      padding: 0.5rem 0.3rem;
+      padding: 0.8rem 0.3rem;
       border: 1px solid #a0c8bb;
+      width: 14.28%; /* 7 days */
+      height: 50px;
+      vertical-align: middle;
+      font-weight: 600;
+      user-select: none;
+      cursor: default;
+      transition: background-color 0.3s ease;
     }
+
     .calendar th {
       background-color: #247a6b;
       color: white;
       font-weight: 700;
     }
+
     .calendar td.available {
       background-color: #a0d9c8;
       color: #1b4d3a;
-      font-weight: 600;
-    }
-    .calendar td.unavailable {
-      background-color: #f2f2f2;
-      color: #999;
+      cursor: pointer;
     }
 
-    /* Booking form styling */
+    .calendar td.unavailable {
+      background-color: #f0f0f0;
+      color: #999;
+      cursor: not-allowed;
+    }
+
+    .calendar td.unavailable:hover {
+      background-color: #f0f0f0;
+    }
+
+    .calendar td.available:hover {
+      background-color: #78c7af;
+      color: white;
+    }
+
+    /* Hide empty cells */
+    .calendar td.unavailable:empty {
+      background: transparent;
+      border: none;
+      cursor: default;
+    }
+
+    /* Booking form */
     form {
-      background: #e6f2ef;
-      border-radius: 10px;
-      max-width: 720px;
-      margin: 3rem auto 0;
+      background: #d4ede6;
       padding: 1.5rem 2rem;
-      box-shadow: 0 4px 8px rgba(36, 122, 107, 0.2);
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin: 0 auto 3rem auto;
     }
-    form h3 {
-      margin-top: 0;
-      color: #174c43;
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-    }
+
     form label {
       display: block;
       margin-bottom: 0.3rem;
       font-weight: 600;
-      color: #174c43;
+      color: #247a6b;
     }
-    form input, form select, form textarea {
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="tel"],
+    form input[type="date"],
+    form select,
+    form textarea {
       width: 100%;
       padding: 0.5rem;
       margin-bottom: 1rem;
-      border: 1.5px solid #247a6b;
-      border-radius: 5px;
+      border: 2px solid #a0c8bb;
+      border-radius: 6px;
       font-size: 1rem;
       font-family: inherit;
       resize: vertical;
     }
+
     form button {
       background-color: #247a6b;
       color: white;
       font-weight: 700;
       border: none;
       padding: 0.7rem 1.5rem;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
       font-size: 1.1rem;
       transition: background-color 0.3s ease;
     }
+
     form button:hover {
-      background-color: #1b5947;
+      background-color: #1b5d4b;
     }
 
     /* WhatsApp floating button */
-    .whatsapp-float {
+    .whatsapp-btn {
       position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
       width: 60px;
       height: 60px;
-      bottom: 30px;
-      right: 30px;
-      background-color: #25d366;
-      color: white;
       border-radius: 50%;
-      text-align: center;
-      font-size: 30px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
       cursor: pointer;
       z-index: 1000;
       transition: background-color 0.3s ease;
     }
-    .whatsapp-float:hover {
+
+    .whatsapp-btn:hover {
       background-color: #1ebe57;
     }
-    .whatsapp-icon {
-      line-height: 60px;
-    }
 
-    /* Footer */
-    footer {
-      margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 1px solid #ccc;
-      font-size: 0.9rem;
-      color: #777;
-      text-align: center;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+    .whatsapp-btn svg {
+      width: 32px;
+      height: 32px;
+      fill: white;
     }
 
     /* Responsive */
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2.2rem;
-      }
-      h2 {
-        font-size: 1.4rem;
-      }
-      p, ul {
-        font-size: 1rem;
-      }
-      .container {
-        padding: 1rem 1rem 3rem;
-      }
-      .calendar {
-        padding: 1rem 1.2rem;
+      body {
+        padding: 1rem;
       }
       form {
-        padding: 1rem 1.2rem;
-      }
-      .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        font-size: 24px;
-        bottom: 20px;
-        right: 20px;
-      }
-      .whatsapp-icon {
-        line-height: 50px;
+        padding: 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <main class="container" role="main">
-    <h1>Welcome to Your Hilltop Jungle Retreat</h1>
+
+  <header>
+    <h1>Good Vibes Roatan</h1>
+    <p>Your Private Jungle Escape Near West End's Half Moon Bay</p>
+  </header>
+
+  <section class="description" aria-label="About the property">
     <p>
-      Perched on a peaceful hilltop and nestled within 3 acres of lush, maintained jungle, our two private 1-bedroom units offer a perfect blend of seclusion and convenience. Each unit has its own kitchen and bathroom, natural breezes, and is solar powered with a battery system and back-up generator.
-    </p>
-    <p class="deck-bonfire">
-      Step out onto the spacious covered deck surrounded by greenery, or gather around the cozy bonfire and grilling area for relaxing evenings under the stars.
+      Nestled in 3 acres of maintained jungle, our two private 1-bedroom units offer a quiet, natural vibe just a short walk from West End's Half Moon Bay. Each unit has its own kitchen and bathroom, natural breezes, solar powered with battery system and back-up generator, and access to a covered deck with beautiful jungle views.
     </p>
     <p>
-      Just a short walk from West End’s beautiful Half Moon Bay, you’ll feel right at home in this serene tropical setting.
+      Perched gently in the trees on a peaceful hilltop, this is a place to relax around the bonfire and grilling area. We are truly blessed to share this sanctuary with you — moments away from Roatan’s rich experiences and beauty.
     </p>
+    <p>
+      We know Roatan and most tour operators personally and can help you set up any adventure you desire — from exploring South Shore Zip Line to charter fishing guided by family and friends.
+    </p>
+    <p>
+      Want to volunteer? Help is always welcome at the West End Community Center. Interested in music or art? We might lend an instrument or set you up with a canvas. Hosting an intimate jam night is possible at The House of Good Vibes — experience Roatan like no other.
+    </p>
+  </section>
 
-    <section aria-labelledby="things-to-do">
-      <h2 id="things-to-do">Things to Do on Roatan — All Moments Away</h2>
-      <ul>
-        <li>Explore the vibrant coral reefs with snorkeling and scuba diving</li>
-        <li>Relax on the white sandy beaches of West End and Half Moon Bay</li>
-        <li>Discover local culture and crafts at the artisan markets</li>
-        <li>Enjoy fresh seafood and tropical cuisine at nearby restaurants</li>
-        <li>Take a boat tour to see dolphins, turtles, and island wildlife</li>
-        <li>Zip through the jungle canopy at South Shore Zip Line</li>
-        <li>Experience lively nightlife with bars and live music venues</li>
-        <li>Hike through jungle trails and enjoy panoramic island views</li>
-        <li>Sip a cold drink at the world-famous <span class="highlight">Sundowner’s Beach Bar</span> — where I play live music every Tuesday evening for <span class="highlight">Taco Tunesday</span></li>
-      </ul>
-    </section>
+  <section class="calendar" aria-label="Availability calendar">
+    <h3>June 2025 Availability</h3>
+    <table role="grid" aria-describedby="calendar-desc">
+      <caption id="calendar-desc" class="sr-only">
+        Calendar grid for June 2025 showing availability status for each day
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Sun</th>
+          <th scope="col">Mon</th>
+          <th scope="col">Tue</th>
+          <th scope="col">Wed</th>
+          <th scope="col">Thu</th>
+          <th scope="col">Fri</th>
+          <th scope="col">Sat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="unavailable">1</td>
+          <td class="available">2</td>
+          <td class="available">3</td>
+          <td class="available">4</td>
+          <td class="available">5</td>
+          <td class="available">6</td>
+          <td class="available">7</td>
+        </tr>
+        <tr>
+          <td class="available">8</td>
+          <td class="available">9</td>
+          <td class="available">10</td>
+          <td class="available">11</td>
+          <td class="available">12</td>
+          <td class="unavailable">13</td>
+          <td class="available">14</td>
+        </tr>
+        <tr>
+          <td class="available">15</td>
+          <td class="available">16</td>
+          <td class="available">17</td>
+          <td class="available">18</td>
+          <td class="available">19</td>
+          <td class="available">20</td>
+          <td class="available">21</td>
+        </tr>
+        <tr>
+          <td class="available">22</td>
+          <td class="available">23</td>
+          <td class="available">24</td>
+          <td class="available">25</td>
+          <td class="available">26</td>
+          <td class="available">27</td>
+          <td class="available">28</td>
+        </tr>
+        <tr>
+          <td class="available">29</td>
+          <td class="available">30</td>
+          <td class="unavailable"></td>
+          <td class="unavailable"></td>
+          <td class="unavailable"></td>
+          <td class="unavailable"></td>
+          <td class="unavailable"></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 
-    <section aria-labelledby="local-experience">
-      <h2 id="local-experience">Experience Roatan Like a Local</h2>
-      <p>
-        We’ve lived on Roatan for over a decade, and my wife’s family is from the island. We know the community and most local tour operators personally, and we’re happy to help you arrange any experience you’re dreaming of — whether it’s a <span class="highlight">guided fly fishing trip</span> with my brother-in-law, who knows these waters like the back of his hand, or simply pointing you toward <span class="highlight">the perfect dive shop or tucked-away local restaurant</span>.
-      </p>
-      <p>
-        Want to give back while you’re here? Help is always welcomed at the <span class="highlight">West End Community Center</span>, a small local nonprofit doing meaningful work with children and families in the area. Just ask us how you can get involved.
-      </p>
-    </section>
+  <section aria-label="Booking form">
+    <h2>Reserve Your Stay</h2>
+    <form action="https://formspree.io/f/mgvyaayj" method="POST">
+      <label for="name">Full Name *</label>
+      <input type="text" id="name" name="name" required />
 
-    <section aria-labelledby="good-vibes-house">
-      <h2 id="good-vibes-house">The House of Good Vibes</h2>
-      <p>
-        Here, you’ll find more than just a place to stay.
-      </p>
-      <ul>
-        <li>Want to play some music? We might be able to lend you an instrument.</li>
-        <li>Feeling inspired to paint? We can set you up with a canvas.</li>
-        <li>Hosting an intimate jam night? It’s a real possibility.</li>
-      </ul>
-      <p>
-        This is a space to unwind, to connect, and to experience Roatan like no other.
-      </p>
-    </section>
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="_replyto" required />
 
-    <section class="calendar" aria-label="Static Availability Calendar">
-      <h3>Availability Calendar</h3>
-      <p>We have a spot for you anytime — no need to worry about dates or complicated bookings!</p>
-      <p class="note">Contact us directly through WhatsApp to confirm your preferred stay.</p>
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" />
 
-      <table aria-describedby="availability-note">
-        <thead>
-          <tr>
-            <th>Month</th>
-            <th>Availability</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>January</td><td class="available">Available</td></tr>
-          <tr><td>February</td><td class="available">Available</td></tr>
-          <tr><td>March</td><td class="available">Available</td></tr>
-          <tr><td>April</td><td class="available">Available</td></tr>
-          <tr><td>May</td><td class="available">Available</td></tr>
-          <tr><td>June</td><td class="available">Available</td></tr>
-          <tr><td>July</td><td class="available">Available</td></tr>
-          <tr><td>August</td><td class="available">Available</td></tr>
-          <tr><td>September</td><td class="available">Available</td></tr>
-          <tr><td>October</td><td class="available">Available</td></tr>
-          <tr><td>November</td><td class="available">Available</td></tr>
-          <tr><td>December</td><td class="available">Available</td></tr>
-        </tbody>
-      </table>
-    </section>
+      <label for="checkin">Check-In Date *</label>
+      <input type="date" id="checkin" name="checkin" required />
 
-    <section aria-labelledby="booking-form">
-      <form
-        action="https://formspree.io/f/myformid"
-        method="POST"
-        id="booking-form"
-      >
-        <h3>Book Your Stay / Ask a Question</h3>
+      <label for="checkout">Check-Out Date *</label>
+      <input type="date" id="checkout" name="checkout" required />
 
-        <label for="name">Full Name*</label>
-        <input type="text" id="name" name="name" placeholder="Your name" required />
+      <label for="guests">Number of Guests *</label>
+      <select id="guests" name="guests" required>
+        <option value="">Select...</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3+">3 or more</option>
+      </select>
 
-        <label for="email">Email Address*</label>
-        <input type="email" id="email" name="_replyto" placeholder="you@example.com" required />
+      <label for="message">Additional Requests or Questions</label>
+      <textarea id="message" name="message" rows="4" placeholder="Let us know how we can make your stay special"></textarea>
 
-        <label for="phone">Phone or WhatsApp Number</label>
-        <input type="tel" id="phone" name="phone" placeholder="+504 1234 5678" />
+      <button type="submit">Send Booking Request</button>
+    </form>
+  </section>
 
-        <label for="message">Message / Dates Interested</label>
-        <textarea id="message" name="message" rows="4" placeholder="Tell us your preferred dates or questions"></textarea>
-
-        <button type="submit">Send Booking Request</button>
-      </form>
-    </section>
-
-  </main>
-
-  <!-- WhatsApp Contact Button -->
+  <!-- WhatsApp Button -->
   <a
-    href="https://wa.me/50432436262"
-    class="whatsapp-float"
+    href="https://wa.me/150432436262"
+    class="whatsapp-btn"
     aria-label="Chat with us on WhatsApp"
     target="_blank"
-    rel="noopener"
+    rel="noopener noreferrer"
   >
-    <span class="whatsapp-icon">📱</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path
+        d="M20.52 3.48A11.815 11.815 0 0012 0C5.373 0 0 5.373 0 12c0 2.113.555 4.08 1.605 5.813L0 24l6.39-1.644A11.939 11.939 0 0012 24c6.627 0 12-5.373 12-12 0-3.202-1.244-6.204-3.48-8.52zm-8.35 17.24a9.342 9.342 0 01-5.15-1.48l-.37-.225-3.79 1.011 1.013-3.69-.244-.38a9.256 9.256 0 01-1.48-5.17 9.37 9.37 0 0117.632-5.325 9.318 9.318 0 01-5.339 15.567zM16.96 14.81c-.26-.13-1.534-.76-1.77-.85-.236-.09-.408-.13-.58.13s-.66.85-.81 1.02c-.15.17-.3.19-.56.06-.26-.13-1.1-.41-2.1-1.3-.78-.7-1.3-1.57-1.45-1.83-.15-.26-.02-.4.11-.53.11-.11.26-.3.39-.44.13-.15.17-.26.26-.43.09-.17.04-.31-.02-.44-.06-.13-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43-.15 0-.32-.02-.49-.02-.15 0-.41.06-.62.3-.21.24-.81.79-.81 1.92s.83 2.23.95 2.39c.13.17 1.62 2.48 3.92 3.48 1.46.63 2.6.99 3.49 1.26 1.47.45 2.81.38 3.87.23 1.18-.18 3.6-1.46 4.11-2.87.51-1.41.51-2.62.36-2.87-.15-.26-.55-.4-1.15-.7z"
+      ></path>
+    </svg>
   </a>
 
-  <footer>
-    <p>© 2025 Good Vibes Roatan. All rights reserved.</p>
-  </footer>
 </body>
 </html>
