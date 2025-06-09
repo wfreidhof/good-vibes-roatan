@@ -2,351 +2,147 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Good Vibes Roatan - Your Private Jungle Escape</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The House of Good Vibes – Roatan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap" rel="stylesheet"/>
   <style>
-    /* Reset & base */
     body {
-      margin: 0; 
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4f9f7;
-      color: #1b4d3a;
+      font-family: 'Raleway', sans-serif;
+      background-color: #f0f8f7;
+      color: #2c3e50;
+      margin: 0;
+      padding: 0;
       line-height: 1.6;
-      padding: 1rem;
+    }
+    header {
+      background-color: #4db6ac;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .container {
       max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 2rem auto;
+      padding: 0 1rem;
     }
-
-    h1, h2, h3 {
-      color: #247a6b;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
+    h1, h2 {
+      text-align: center;
     }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-top: 0;
+    .section {
+      margin: 2rem 0;
     }
-
-    p {
-      font-size: 1.15rem;
-      margin-bottom: 1.2rem;
-    }
-
-    /* Description section */
-    .description {
-      background: #d4ede6;
-      padding: 1.5rem 2rem;
-      border-radius: 10px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-      margin-bottom: 2rem;
-    }
-
-    /* Calendar styles */
     .calendar {
-      margin-bottom: 2rem;
-    }
-
-    .calendar h3 {
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-      color: #247a6b;
+      background: white;
+      border: 1px solid #ccc;
+      padding: 1rem;
       text-align: center;
     }
-
-    .calendar table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: center;
-      font-size: 1rem;
-      margin-top: 1rem;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    }
-
-    .calendar th, .calendar td {
-      padding: 0.8rem 0.3rem;
-      border: 1px solid #a0c8bb;
-      width: 14.28%; /* 7 days */
-      height: 50px;
-      vertical-align: middle;
-      font-weight: 600;
-      user-select: none;
-      cursor: default;
-      transition: background-color 0.3s ease;
-    }
-
-    .calendar th {
-      background-color: #247a6b;
-      color: white;
-      font-weight: 700;
-    }
-
-    .calendar td.available {
-      background-color: #a0d9c8;
-      color: #1b4d3a;
-      cursor: pointer;
-    }
-
-    .calendar td.unavailable {
-      background-color: #f0f0f0;
-      color: #999;
-      cursor: not-allowed;
-    }
-
-    .calendar td.unavailable:hover {
-      background-color: #f0f0f0;
-    }
-
-    .calendar td.available:hover {
-      background-color: #78c7af;
-      color: white;
-    }
-
-    /* Hide empty cells */
-    .calendar td.unavailable:empty {
-      background: transparent;
-      border: none;
-      cursor: default;
-    }
-
-    /* Booking form */
-    form {
-      background: #d4ede6;
-      padding: 1.5rem 2rem;
-      border-radius: 10px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-      max-width: 500px;
-      margin: 0 auto 3rem auto;
-    }
-
-    form label {
+    .whatsapp {
       display: block;
-      margin-bottom: 0.3rem;
-      font-weight: 600;
-      color: #247a6b;
-    }
-
-    form input[type="text"],
-    form input[type="email"],
-    form input[type="tel"],
-    form input[type="date"],
-    form select,
-    form textarea {
-      width: 100%;
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-      border: 2px solid #a0c8bb;
-      border-radius: 6px;
-      font-size: 1rem;
-      font-family: inherit;
-      resize: vertical;
-    }
-
-    form button {
-      background-color: #247a6b;
-      color: white;
-      font-weight: 700;
-      border: none;
-      padding: 0.7rem 1.5rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1.1rem;
-      transition: background-color 0.3s ease;
-    }
-
-    form button:hover {
-      background-color: #1b5d4b;
-    }
-
-    /* WhatsApp floating button */
-    .whatsapp-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
+      width: fit-content;
+      margin: 1rem auto;
+      padding: 0.5rem 1rem;
       background-color: #25D366;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    form {
+      background-color: #ffffff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    form input, form textarea {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    form button {
+      background-color: #4db6ac;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
       cursor: pointer;
-      z-index: 1000;
-      transition: background-color 0.3s ease;
     }
-
-    .whatsapp-btn:hover {
-      background-color: #1ebe57;
+    .paypal {
+      text-align: center;
+      margin-top: 2rem;
     }
-
-    .whatsapp-btn svg {
-      width: 32px;
-      height: 32px;
-      fill: white;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-      form {
-        padding: 1rem;
-      }
+    footer {
+      background-color: #4db6ac;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>The Good Vibes House Roatan $75 a night</h1>
-    <p>Your Private Jungle Escape Near West End's Half Moon Bay</p>
+    <h1>The House of Good Vibes</h1>
+    <p>Your serene jungle stay near West End, Roatan</p>
   </header>
 
-  <section class="description" aria-label="About the property">
-    <p>
-      Nestled in 3 acres of maintained jungle, our two private 1-bedroom units offer a quiet, natural vibe just a short walk from West End's Half Moon Bay. Each unit has its own kitchen and bathroom, natural breezes, solar powered with battery system and back-up generator, and access to a covered deck with beautiful jungle views.
-    </p>
-    <p>
-      Perched gently in the trees on a peaceful hilltop, this is a place to relax around the bonfire and grilling area. We are truly blessed to share this sanctuary with you — moments away from Roatan’s rich experiences and beauty.
-    </p>
-    <p>
-      We know Roatan and most tour operators personally and can help you set up any adventure you desire — from exploring South Shore Zip Line to charter fishing guided by family and friends.
-    </p>
-    <p>
-      Want to volunteer? Help is always welcome at the West End Community Center. Interested in music or art? We might lend an instrument or set you up with a canvas. Hosting an intimate jam night is possible at The House of Good Vibes — experience Roatan like no other.
-    </p>
-  </section>
+  <div class="container">
+    <div class="section">
+      <p>
+        Nestled in 3 acres of maintained jungle, our <strong>two separate and private 1-bedroom units</strong> each offer a quiet, natural vibe just a short walk from West End's Half Moon Bay. Each unit is rented individually and includes its own kitchen and bathroom, natural breezes, a solar-powered battery system with back-up generator, and access to a covered deck with beautiful jungle views.
+      </p>
+      <p>
+        Perched gently in the trees on a peaceful hilltop, this is a place to relax around the bonfire and grilling area. <strong>We are truly blessed</strong> to share this sanctuary with you — moments away from Roatan’s rich experiences and beauty.
+      </p>
+      <p>
+        We know Roatan and most tour operators personally and can help you set up any adventure you desire — from exploring South Shore Zip Line to charter fishing guided by family and friends.
+      </p>
+      <p>
+        Want to volunteer? Help is always welcome at the West End Community Center. Interested in music or art? We might lend an instrument or set you up with a canvas. Hosting an intimate jam night is possible at The House of Good Vibes — experience Roatan like no other.
+      </p>
+    </div>
 
-  <section class="calendar" aria-label="Availability calendar">
-    <h3>June 2025 Availability</h3>
-    <table role="grid" aria-describedby="calendar-desc">
-      <caption id="calendar-desc" class="sr-only">
-        Calendar grid for June 2025 showing availability status for each day
-      </caption>
-      <thead>
-        <tr>
-          <th scope="col">Sun</th>
-          <th scope="col">Mon</th>
-          <th scope="col">Tue</th>
-          <th scope="col">Wed</th>
-          <th scope="col">Thu</th>
-          <th scope="col">Fri</th>
-          <th scope="col">Sat</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="unavailable">1</td>
-          <td class="available">2</td>
-          <td class="available">3</td>
-          <td class="available">4</td>
-          <td class="available">5</td>
-          <td class="available">6</td>
-          <td class="available">7</td>
-        </tr>
-        <tr>
-          <td class="available">8</td>
-          <td class="available">9</td>
-          <td class="available">10</td>
-          <td class="available">11</td>
-          <td class="available">12</td>
-          <td class="unavailable">13</td>
-          <td class="available">14</td>
-        </tr>
-        <tr>
-          <td class="available">15</td>
-          <td class="available">16</td>
-          <td class="available">17</td>
-          <td class="available">18</td>
-          <td class="available">19</td>
-          <td class="available">20</td>
-          <td class="available">21</td>
-        </tr>
-        <tr>
-          <td class="available">22</td>
-          <td class="available">23</td>
-          <td class="available">24</td>
-          <td class="available">25</td>
-          <td class="available">26</td>
-          <td class="available">27</td>
-          <td class="available">28</td>
-        </tr>
-        <tr>
-          <td class="available">29</td>
-          <td class="available">30</td>
-          <td class="unavailable"></td>
-          <td class="unavailable"></td>
-          <td class="unavailable"></td>
-          <td class="unavailable"></td>
-          <td class="unavailable"></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+    <div class="section calendar">
+      <h2>Availability</h2>
+      <p>We keep things simple — we usually have a spot for you. Just reach out to confirm your dates.</p>
+    </div>
 
-  <section aria-label="Booking form">
-    <h2>Reserve Your Stay</h2>
-    <form action="https://formspree.io/f/mgvyaayj" method="POST">
-      <label for="name">Full Name *</label>
-      <input type="text" id="name" name="name" required />
+    <a class="whatsapp" href="https://wa.me/50432436262" target="_blank">
+      Message Us on WhatsApp
+    </a>
 
-      <label for="email">Email Address *</label>
-      <input type="email" id="email" name="_replyto" required />
+    <div class="section">
+      <h2>Reserve Your Stay</h2>
+      <p>$75/night, 3-night minimum stay. A $100 non-refundable deposit secures your booking. Final payment upon arrival.</p>
+      <div class="paypal">
+        <form action="https://www.paypal.com/donate" method="post" target="_blank">
+          <input type="hidden" name="business" value="williamblackbeardthepirate@gmail.com" />
+          <input type="hidden" name="currency_code" value="USD" />
+          <input type="hidden" name="amount" value="100.00" />
+          <input type="hidden" name="item_name" value="Deposit for House of Good Vibes" />
+          <button type="submit">Pay $100 Deposit via PayPal</button>
+        </form>
+      </div>
+    </div>
 
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="phone" />
+    <div class="section">
+      <h2>Contact Us</h2>
+      <form action="https://formspree.io/f/mgvyaayj" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required/>
+        <input type="email" name="email" placeholder="Your Email" required/>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
 
-      <label for="checkin">Check-In Date *</label>
-      <input type="date" id="checkin" name="checkin" required />
-
-      <label for="checkout">Check-Out Date *</label>
-      <input type="date" id="checkout" name="checkout" required />
-
-      <label for="guests">Number of Guests *</label>
-      <select id="guests" name="guests" required>
-        <option value="">Select...</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3+">3 or more</option>
-      </select>
-
-      <label for="message">Additional Requests or Questions</label>
-      <textarea id="message" name="message" rows="4" placeholder="Let us know how we can make your stay special"></textarea>
-
-      <button type="submit">Send Booking Request</button>
-    </form>
-  </section>
-  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-  <input type="hidden" name="cmd" value="_xclick">
-  <input type="hidden" name="business" value="williamblackbeardthepirate@gmail.com">
-  <input type="hidden" name="item_name" value="Good Vibes House Deposit">
-  <input type="hidden" name="amount" value="100.00">
-  <input type="hidden" name="currency_code" value="USD">
-  <input type="hidden" name="return" value="https://goodvibesroatan.com/thankyou.html">
-  <input type="hidden" name="cancel_return" value="https://goodvibesroatan.com/">
-  <input type="submit" value="Pay $100 Deposit via PayPal" style="background-color:#28a745;color:white;padding:10px 20px;border:none;border-radius:5px;cursor:pointer;font-size:16px;">
-</form>
-
-
-  <!-- WhatsApp Button -->
-  <a
-    href="https://wa.me/150432436262"
-    class="whatsapp-btn"
-    aria-label="Chat with us on WhatsApp"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path
-        d="M20.52 3.48A11.815 11.815 0 0012 0C5.373 0 0 5.373 0 12c0 2.113.555 4.08 1.605 5.813L0 24l6.39-1.644A11.939 11.939 0 0012 24c6.627 0 12-5.373 12-12 0-3.202-1.244-6.204-3.48-8.52zm-8.35 17.24a9.342 9.342 0 01-5.15-1.48l-.37-.225-3.79 1.011 1.013-3.69-.244-.38a9.256 9.256 0 01-1.48-5.17 9.37 9.37 0 0117.632-5.325 9.318 9.318 0 01-5.339 15.567zM16.96 14.81c-.26-.13-1.534-.76-1.77-.85-.236-.09-.408-.13-.58.13s-.66.85-.81 1.02c-.15.17-.3.19-.56.06-.26-.13-1.1-.41-2.1-1.3-.78-.7-1.3-1.57-1.45-1.83-.15-.26-.02-.4.11-.53.11-.11.26-.3.39-.44.13-.15.17-.26.26-.43.09-.17.04-.31-.02-.44-.06-.13-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43-.15 0-.32-.02-.49-.02-.15 0-.41.06-.62.3-.21.24-.81.79-.81 1.92s.83 2.23.95 2.39c.13.17 1.62 2.48 3.92 3.48 1.46.63 2.6.99 3.49 1.26 1.47.45 2.81.38 3.87.23 1.18-.18 3.6-1.46 4.11-2.87.51-1.41.51-2.62.36-2.87-.15-.26-.55-.4-1.15-.7z"
-      ></path>
-    </svg>
-  </a>
+  <footer>
+    &copy; 2025 The House of Good Vibes, Roatan. All rights reserved. Have an amazing day!
+  </footer>
 
 </body>
 </html>
