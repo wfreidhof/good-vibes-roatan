@@ -419,5 +419,142 @@
   startFruitGame();
 </script>
 
+  <section id="ocean-cleanup" style="padding: 20px; background: #e0f7fa; margin-top: 50px; border-radius: 10px; text-align: center; font-family: 'Arial', sans-serif;">
+  <h2 style="color: #00796b;">Ocean Cleanup Challenge</h2>
+  <p style="color: #004d40;">Use A and D keys to move and catch the trash. Avoid the fish!</p>
+
+  <canvas id="cleanupCanvas" width="320" height="240" style="background: #b2ebf2; border: 3px solid #009688; border-radius: 10px; display: block; margin: 0 auto;"></canvas>
+
+  <p id="cleanupScore" style="font-size: 20px; color: #00796b; margin-top: 10px;">Score: 0</p>
+
+  <button onclick="startCleanupGame()" style="
+    padding: 8px 20px;
+    background-color: #004d40;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  ">Restart Game</button>
+</section>
+
+<script>
+  const cleanupCanvas = document.getElementById('cleanupCanvas');
+  const cleanupCtx = cleanupCanvas.getContext('2d');
+  const cleanupScoreDisplay = document.getElementById('cleanupScore');
+
+  const basketWidth = 60;
+  const basketHeight = 20;
+  let basketX = (cleanupCanvas.width - basketWidth) / 2;
+
+  const trashItems = ['🗑️', '🧴', '🥤', '🍂'];
+  const fishItems = ['🐟', '🐠', '🐡'];
+  let fallingObjects = [];
+  let score = 0;
+  let gameInterval;
+  let dropInterval;
+  let leftPressed = false;
+  let rightPressed = false;
+  let gameOver = false;
+
+  function drawBasket() {
+    cleanupCtx.fillStyle = '#004d40';
+    cleanupCtx.fillRect(basketX, cleanupCanvas.height - basketHeight - 10, basketWidth, basketHeight);
+  }
+
+  function spawnObject() {
+    const isTrash = Math.random() < 0.7; // 70% chance trash, 30% fish
+    const emoji = isTrash
+      ? trashItems[Math.floor(Math.random() * trashItems.length)]
+      : fishItems[Math.floor(Math.random() * fishItems.length)];
+    const obj = {
+      x: Math.random() * (cleanupCanvas.width - 24),
+      y: -24,
+      emoji: emoji,
+      speed: 2 + Math.random() * 2,
+      isTrash: isTrash
+    };
+    fallingObjects.push(obj);
+  }
+
+  function drawObjects() {
+    cleanupCtx.font = '24px serif';
+    fallingObjects.forEach(obj => {
+      cleanupCtx.fillText(obj.emoji, obj.x, obj.y);
+    });
+  }
+
+  function updateObjects() {
+    for (let i = 0; i < fallingObjects.length; i++) {
+      const obj = fallingObjects[i];
+      obj.y += obj.speed;
+
+      if (
+        obj.y > cleanupCanvas.height - basketHeight - 30 &&
+        obj.x > basketX - 12 &&
+        obj.x < basketX + basketWidth
+      ) {
+        if (obj.isTrash) {
+          score++;
+          cleanupScoreDisplay.textContent = `Score: ${score}`;
+          fallingObjects.splice(i, 1);
+          i--;
+        } else {
+          gameOver = true;
+          clearInterval(gameInterval);
+          clearInterval(dropInterval);
+          alert('Oh no! You caught a fish! Game over.');
+          break;
+        }
+      } else if (obj.y > cleanupCanvas.height) {
+        fallingObjects.splice(i, 1);
+        i--;
+      }
+    }
+  }
+
+  function clearCanvas() {
+    cleanupCtx.clearRect(0, 0, cleanupCanvas.width, cleanupCanvas.height);
+  }
+
+  function moveBasket() {
+    if (leftPressed && basketX > 0) basketX -= 5;
+    if (rightPressed && basketX < cleanupCanvas.width - basketWidth) basketX += 5;
+  }
+
+  function gameLoop() {
+    if (gameOver) return;
+    clearCanvas();
+    moveBasket();
+    drawBasket();
+    updateObjects();
+    drawObjects();
+  }
+
+  function startCleanupGame() {
+    score = 0;
+    fallingObjects = [];
+    basketX = (cleanupCanvas.width - basketWidth) / 2;
+    cleanupScoreDisplay.textContent = "Score: 0";
+    gameOver = false;
+    clearInterval(gameInterval);
+    clearInterval(dropInterval);
+    gameInterval = setInterval(gameLoop, 30);
+    dropInterval = setInterval(spawnObject, 1000);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key.toLowerCase() === 'a') leftPressed = true;
+    if (e.key.toLowerCase() === 'd') rightPressed = true;
+  });
+
+  document.addEventListener('keyup', (e) => {
+    if (e.key.toLowerCase() === 'a') leftPressed = false;
+    if (e.key.toLowerCase() === 'd') rightPressed = false;
+  });
+
+  startCleanupGame();
+</script>
+
 </body>
 </html>
