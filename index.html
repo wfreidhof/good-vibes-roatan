@@ -3,175 +3,184 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Good Vibes Roatan</title>
+  <title>Good Vibes House Roatan | Private Units for Rent</title>
   <style>
+    /* Reset and base */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0; padding: 0; background: #f0f8ff;
-      color: #333;
+      margin: 0;
+      background: #f5f9f7;
+      color: #2c3e50;
+      line-height: 1.6;
+      padding: 0 1rem;
     }
     header {
-      background: #0099cc;
+      background: #4caf50;
       color: white;
-      padding: 2rem 1rem;
+      padding: 1.5rem 1rem;
       text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
     }
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-weight: 700;
+      font-size: 2rem;
       letter-spacing: 2px;
-    }
-    header p {
-      margin-top: 0.5rem;
-      font-style: italic;
     }
     main {
       max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      margin: 2rem auto 4rem auto;
     }
     section {
       margin-bottom: 3rem;
     }
     h2 {
-      border-bottom: 2px solid #0099cc;
-      padding-bottom: 0.5rem;
-      color: #007799;
+      color: #27ae60;
+      margin-bottom: 0.75rem;
+      border-bottom: 2px solid #27ae60;
+      padding-bottom: 0.25rem;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
     }
     ul {
-      list-style: none;
-      padding-left: 0;
+      list-style-type: disc;
+      padding-left: 1.25rem;
+      margin-bottom: 1rem;
     }
     ul li {
       margin-bottom: 0.5rem;
-      padding-left: 1rem;
-      position: relative;
     }
-    ul li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: #0099cc;
-      font-weight: bold;
-    }
-    a.button {
-      background-color: #0099cc;
-      color: white;
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 4px;
-      display: inline-block;
+    /* Calendar iframe styling */
+    .calendar-container {
+      width: 100%;
+      height: 600px;
+      border: none;
       margin-top: 1rem;
-      transition: background-color 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
     }
-    a.button:hover {
-      background-color: #007799;
+    /* Contact form styling */
+    form {
+      background: #eaf7ea;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin: 0 auto;
     }
+    label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #2d6a33;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #a5d6a7;
+      border-radius: 4px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    button {
+      background: #27ae60;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #1e8449;
+    }
+    /* Footer */
     footer {
       text-align: center;
       padding: 1rem;
+      color: #777;
       font-size: 0.9rem;
-      color: #666;
-      background: #e0f0ff;
+      border-top: 1px solid #ddd;
     }
-    /* WhatsApp Chat Button bottom right */
-    #whatsapp-chat {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-      cursor: pointer;
-      z-index: 1000;
-    }
-    #whatsapp-chat svg {
-      fill: white;
-      width: 32px;
-      height: 32px;
-    }
-    /* Responsive iframe */
-    .calendar-container {
-      position: relative;
-      padding-bottom: 75%;
-      height: 0;
-      overflow: hidden;
-      max-width: 100%;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .calendar-container iframe {
-      position: absolute;
-      top:0; left: 0; width: 100%; height: 100%;
-      border: none;
-      border-radius: 8px;
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+      main {
+        margin: 1rem auto 2rem auto;
+        padding: 0 0.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Good Vibes Roatan</h1>
-  <p>Your peaceful island getaway</p>
-</header>
+  <header>
+    <h1>Good Vibes House Roatan</h1>
+    <p>Private One-Bedroom Units for Rent — Your Tropical Escape Awaits</p>
+  </header>
 
-<main>
-  <section id="about">
-    <h2>About the House</h2>
-    <p>We offer two private, one-bedroom units for rent — solar powered, off-grid with battery backup and generator. Enjoy natural breezes in a private setting just a short walk to West End’s Half Moon Bay. Conveniently located near shops, dive centers, and restaurants.</p>
-  </section>
+  <main>
 
-  <section id="units">
-    <h2>Our Units</h2>
-    <ul>
-      <li><strong>Upstairs One-Bedroom Apartment:</strong> Spacious and bright with full kitchen, queen bed, and stunning views of West End and Mangrove Bight.</li>
-      <li><strong>Downstairs One-Bedroom Efficiency:</strong> Cozy and private with kitchenette, queen bed, and peaceful forest surroundings.</li>
-    </ul>
-  </section>
+    <section id="about">
+      <h2>About the Property</h2>
+      <p>
+        Nestled on a peaceful hillside just a short walk to West End's famous Half Moon Bay, our property offers two private one-bedroom units — each with its own kitchen and bathroom for your complete comfort and privacy.
+      </p>
+      <p>
+        Enjoy access to a huge shared porch overlooking 3 acres of lush, maintained jungle that creates an amazing park-like atmosphere with natural breezes and stunning views.
+      </p>
+      <p>
+        Both units are fully solar powered, off-grid with battery storage and backup generator, combining eco-friendly living with all the comforts you need.
+      </p>
+    </section>
 
-  <section id="amenities">
-    <h2>Amenities</h2>
-    <ul>
-      <li>Solar-powered with battery & backup generator</li>
-      <li>Hot water & Wi-Fi</li>
-      <li>Ceiling fans and personal fans</li>
-      <li>Outdoor seating including hammock and patio</li>
-      <li>Short walk to Half Moon Bay beach</li>
-    </ul>
-  </section>
+    <section id="units">
+      <h2>Our Units</h2>
+      <ul>
+        <li>Two private, one-bedroom units available for individual rental</li>
+        <li>Each unit has a fully equipped kitchen and private bathroom</li>
+        <li>Shared large porch for relaxing and socializing</li>
+        <li>Natural breezes and tranquil jungle surroundings</li>
+        <li>Convenient location — minutes from beaches, restaurants, and local attractions</li>
+      </ul>
+    </section>
 
-  <section id="booking">
-    <h2>Book Your Stay</h2>
-    <p>Check availability and book your stay hassle-free with our online calendar below.</p>
-    <div class="calendar-container">
-      <!-- Replace the src URL below with your actual Calendly embed link -->
-      <iframe src="https://calendly.com/embed/your-calendly-username/30min" allowtransparency="true"></iframe>
-    </div>
-  </section>
+    <section id="availability">
+      <h2>Check Availability & Book</h2>
+      <!-- Replace the iframe src below with your actual Calendly (or other) embed link -->
+      <iframe class="calendar-container" src="https://calendly.com/yourusername/30min" allowtransparency="true" frameborder="0"></iframe>
+    </section>
 
-  <section id="contact">
-    <h2>Contact & Booking</h2>
-    <p>For questions or direct booking, reach out on WhatsApp:</p>
-    <a href="https://wa.me/50432436262" class="button" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
-  </section>
-</main>
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+        <label for="name">Full Name</label>
+        <input id="name" name="name" type="text" required />
 
-<!-- WhatsApp chat button bottom right -->
-<div id="whatsapp-chat" onclick="window.open('https://wa.me/50432436262','_blank')">
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M20.52 3.48A11.78 11.78 0 0012 0a11.88 11.88 0 00-10.4 17.3L0 24l6.92-1.8A11.8 11.8 0 0024 12c0-3.18-1.24-6.17-3.48-8.52zm-8.5 17.36a9.72 9.72 0 01-4.92-1.38l-.35-.22-4.1 1.06 1.1-4.01-.22-.36a9.63 9.63 0 011.42-11.64 9.68 9.68 0 0113.69 0 9.63 9.63 0 011.52 11.55 9.69 9.69 0 01-8.46 3.0zM16.45 14.3c-.26-.13-1.55-.77-1.79-.86-.24-.1-.42-.13-.6.13s-.7.86-.85 1.04c-.15.18-.3.2-.56.07a6.47 6.47 0 01-1.9-1.17 7.26 7.26 0 01-1.34-1.65c-.14-.24-.02-.37.11-.5.12-.12.26-.3.4-.44.13-.14.17-.24.26-.4.09-.16.05-.3-.02-.43-.08-.13-.6-1.43-.82-1.96-.22-.52-.44-.45-.6-.46-.16 0-.35 0-.54 0a1.1 1.1 0 00-.83.4 3.5 3.5 0 00-1.3 3.06 6.85 6.85 0 003.14 4.65 12.2 12.2 0 005.18 2.17 4.95 4.95 0 002.2.19 4.25 4.25 0 001.29-.88 4.92 4.92 0 001.55-3.03c.01-.12.01-.24.01-.36 0-.12-.03-.2-.1-.28-.07-.08-.25-.19-.5-.32z"/>
-  </svg>
-</div>
+        <label for="email">Email Address</label>
+        <input id="email" name="email" type="email" required />
 
-<footer>
-  &copy; 2025 Good Vibes Roatan. All rights reserved.
-</footer>
+        <label for="message">Message or Questions</label>
+        <textarea id="message" name="message" rows="5" placeholder="Let us know how we can help!"></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+      <p style="text-align:center; margin-top: 1rem; font-size: 0.9rem; color: #555;">
+        Or WhatsApp us at <a href="https://wa.me/50432436262" target="_blank" rel="noopener" style="color:#27ae60;">+504 3243 6262</a>
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Good Vibes House Roatan — Peace, Privacy & Paradise</p>
+  </footer>
 
 </body>
 </html>
