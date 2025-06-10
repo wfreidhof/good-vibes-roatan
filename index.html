@@ -1,12 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+  .slideshow-corner {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    z-index: 9998;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+
+  .slideshow-corner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .slideshow-corner img.active {
+    opacity: 1;
+  }
+</style>
+
+  <style>
+  .video-corner {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 300px;
+    height: 170px;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .video-corner iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  @media (max-width: 600px) {
+    .video-corner {
+      width: 200px;
+      height: 112px;
+    }
+  }
+</style>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Good Vibes Roatan</title>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap" rel="stylesheet"/>
   <style>
-    /* General Styles */
     body {
       font-family: 'Raleway', sans-serif;
       background-color: #f0f8f7;
@@ -15,47 +68,46 @@
       padding: 0;
       line-height: 1.6;
     }
-
-    header, footer {
+    header {
       background-color: #4db6ac;
       color: white;
+      padding: 2rem 1rem;
       text-align: center;
-      padding: 1.5rem 1rem;
     }
-
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
     h1, h2 {
       text-align: center;
     }
-
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 1rem;
-    }
-
     .section {
       margin: 2rem 0;
     }
-
-    .calendar, form {
+    .calendar {
       background: white;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      text-align: center;
+    }
+    .whatsapp {
+      display: block;
+      width: fit-content;
+      margin: 1rem auto;
+      padding: 0.5rem 1rem;
+      background-color: #25D366;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    form {
+      background-color: #ffffff;
       padding: 1rem;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
-
-    .whatsapp {
-      display: inline-block;
-      margin: 1rem auto;
-      background: #25D366;
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
-      font-weight: bold;
-      text-align: center;
-      text-decoration: none;
-    }
-
     form input, form textarea {
       width: 100%;
       margin-bottom: 1rem;
@@ -63,8 +115,7 @@
       border: 1px solid #ccc;
       border-radius: 4px;
     }
-
-    form button, input[type="submit"] {
+    form button {
       background-color: #4db6ac;
       color: white;
       padding: 0.7rem 1.2rem;
@@ -73,122 +124,16 @@
       font-size: 1rem;
       cursor: pointer;
     }
-
-    /* Slideshow */
-    .slideshow-corner {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      width: 280px;
-      height: 180px;
-      overflow: hidden;
-      z-index: 9998;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    }
-
-    .slideshow-corner img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .slideshow-corner img.active {
-      opacity: 1;
-    }
-
-    /* Video */
-    .video-corner {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      width: 300px;
-      height: 170px;
-      z-index: 9999;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    }
-
-    .video-corner iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* Memory Game */
-    #memory-game {
-      padding: 20px;
-      background: #e0f7fa;
-      border-radius: 10px;
-      margin-top: 40px;
-    }
-
-    #game-board {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-      gap: 15px;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .memory-card {
-      width: 100%;
-      padding-top: 100%;
-      position: relative;
-      background-color: #004d40;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .memory-card span {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 2rem;
-      color: transparent;
-      transition: color 0.3s;
-    }
-
-    .memory-card.flipped span {
-      color: white;
-    }
-
-    #game-message {
+    .paypal {
       text-align: center;
-      font-weight: bold;
-      margin-top: 15px;
-      color: #00796b;
+      margin-top: 2rem;
     }
-
-    #reset-button {
-      display: block;
-      margin: 20px auto 0;
-      padding: 10px 20px;
-      background-color: #00796b;
+    footer {
+      background-color: #4db6ac;
       color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    @media (max-width: 600px) {
-      .video-corner {
-        width: 200px;
-        height: 112px;
-      }
-
-      .slideshow-corner {
-        width: 200px;
-        height: 130px;
-      }
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
     }
   </style>
 </head>
@@ -203,31 +148,36 @@
   <div class="container">
     <div class="section">
       <p>
-        Nestled in 3 acres of maintained jungle, our <strong>two separate and private 1-bedroom units</strong> each offer a quiet, natural vibe just a short walk from West End's Half Moon Bay.
+        Nestled in 3 acres of maintained jungle, our <strong>two separate and private 1-bedroom units</strong> each offer a quiet, natural vibe just a short walk from West End's Half Moon Bay. Each unit is rented individually and includes its own kitchen and bathroom, natural breezes, a solar-powered battery system with back-up generator, and access to a covered deck with beautiful jungle views.
       </p>
       <p>
-        Perched in the trees on a peaceful hilltop, this is a place to relax around the bonfire and grilling area. <strong>We are truly blessed</strong> to share this sanctuary with you.
+        Perched gently in the trees on a peaceful hilltop, this is a place to relax around the bonfire and grilling area. <strong>We are truly blessed</strong> to share this sanctuary with you — moments away from Roatan’s rich experiences and beauty.
       </p>
       <p>
-        We know Roatan and most tour operators personally and can help you set up any adventure.
+        We know Roatan and most tour operators personally and can help you set up any adventure you desire — from exploring South Shore Zip Line to charter fishing guided by family and friends.
+      </p>
+      <p>
+        Want to volunteer? Help is always welcome at the West End Community Center. Interested in music or art? We might lend an instrument or set you up with a canvas. Hosting an intimate jam night is possible at The House of Good Vibes — experience Roatan like no other.
       </p>
     </div>
 
     <div class="section calendar">
       <h2>Availability</h2>
-      <p>We usually have a spot for you. Just reach out to confirm your dates.</p>
+      <p>We keep things simple — we usually have a spot for you. Just reach out to confirm your dates.</p>
     </div>
 
-    <a class="whatsapp" href="https://wa.me/50432436262" target="_blank">Message Us on WhatsApp</a>
+    <a class="whatsapp" href="https://wa.me/50432436262" target="_blank">
+      Message Us on WhatsApp
+    </a>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+  <input type="hidden" name="cmd" value="_donations">
+  <input type="hidden" name="business" value="williamblackbeardthepirate@gmail.com">
+  <input type="hidden" name="item_name" value="House of Good Vibes Deposit">
+  <input type="hidden" name="currency_code" value="USD">
+  <input type="hidden" name="return" value="https://www.goodvibesroatan.com/thank-you.html">
+  <input type="submit" value="Pay Deposit via PayPal" style="padding: 10px 20px; background-color: #2c7a7b; color: white; border: none; border-radius: 5px; cursor: pointer;">
+</form>
 
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-      <input type="hidden" name="cmd" value="_donations">
-      <input type="hidden" name="business" value="williamblackbeardthepirate@gmail.com">
-      <input type="hidden" name="item_name" value="House of Good Vibes Deposit">
-      <input type="hidden" name="currency_code" value="USD">
-      <input type="hidden" name="return" value="https://www.goodvibesroatan.com/thank-you.html">
-      <input type="submit" value="Pay Deposit via PayPal">
-    </form>
 
     <div class="section">
       <h2>Contact Us</h2>
@@ -240,91 +190,314 @@
     </div>
   </div>
 
-  <section id="memory-game">
-    <h2>Test Your Memory — Tropical Edition</h2>
-    <p>Match all the pairs to win!</p>
-    <div id="game-board"></div>
-    <p id="game-message"></p>
-    <button id="reset-button">Restart Game</button>
-  </section>
-
   <footer>
-    &copy; 2025 The House of Good Vibes, Roatan. All rights reserved.
+    &copy; 2025 The House of Good Vibes, Roatan. All rights reserved. Have an amazing day!
   </footer>
+  <!-- Memory Card Match Game -->
+<section id="memory-game" style="padding: 20px; background: #e0f7fa; margin-top: 40px; border-radius: 10px;">
+  <h2 style="text-align: center; font-family: 'Arial', sans-serif; color: #00796b;">Test Your Memory — Tropical Edition</h2>
+  <p style="text-align: center; font-family: 'Arial', sans-serif; color: #004d40;">Match all the pairs to win!</p>
 
-  <!-- Slideshow Script (example) -->
-  <div class="slideshow-corner">
-    <img src="image1.jpg" class="active" />
-    <img src="image2.jpg" />
-    <img src="image3.jpg" />
+  <div id="game-board" style="
+    display: grid;
+    grid-template-columns: repeat(4, 80px);
+    grid-gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+  ">
+    <!-- Cards will be generated here -->
   </div>
 
-  <div class="video-corner">
-    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-  </div>
+  <p id="game-message" style="text-align: center; font-family: 'Arial', sans-serif; color: #00796b; font-weight: bold; margin-top: 15px;"></p>
 
-  <script>
-    // Slideshow
-    const slides = document.querySelectorAll('.slideshow-corner img');
-    let slideIndex = 0;
-    setInterval(() => {
-      slides.forEach((img, i) => img.classList.toggle('active', i === slideIndex));
-      slideIndex = (slideIndex + 1) % slides.length;
-    }, 3000);
+  <button id="reset-button" style="
+    display: block;
+    margin: 20px auto 0 auto;
+    padding: 8px 20px;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+  ">Restart Game</button>
+</section>
 
-    // Memory Game
-    const cardsArray = [
-      { name: 'toucan', emoji: '🦜' },
-      { name: 'monkey', emoji: '🐒' },
-      { name: 'turtle', emoji: '🐢' },
-      { name: 'crab', emoji: '🦀' },
-      { name: 'dolphin', emoji: '🐬' },
-      { name: 'frog', emoji: '🐸' },
-      { name: 'palm', emoji: '🌴' },
-      { name: 'parrot', emoji: '🦜' }
-    ];
-    let gameCards = [...cardsArray, ...cardsArray].sort(() => 0.5 - Math.random());
-    const board = document.getElementById('game-board');
-    let first = null, second = null, lock = false, matched = 0;
+<script>
+  const cardsArray = [
+    { name: 'toucan', emoji: '🦜' },
+    { name: 'monkey', emoji: '🐒' },
+    { name: 'turtle', emoji: '🐢' },
+    { name: 'parrot', emoji: '🦜' },
+    { name: 'crab', emoji: '🦀' },
+    { name: 'dolphin', emoji: '🐬' },
+    { name: 'frog', emoji: '🐸' },
+    { name: 'palm', emoji: '🌴' }
+  ];
 
-    function flipCard(cardEl) {
-      if (lock || cardEl.classList.contains('flipped')) return;
-      cardEl.classList.add('flipped');
-      if (!first) {
-        first = cardEl;
-      } else {
-        second = cardEl;
-        lock = true;
-        if (first.dataset.name === second.dataset.name) {
-          matched++;
-          if (matched === cardsArray.length) {
-            document.getElementById('game-message').textContent = "You matched them all!";
-          }
-          first = second = null;
-          lock = false;
-        } else {
-          setTimeout(() => {
-            first.classList.remove('flipped');
-            second.classList.remove('flipped');
-            first = second = null;
-            lock = false;
-          }, 1000);
-        }
-      }
+  // We want pairs, so duplicate array and shuffle
+  let gameCards = [...cardsArray, ...cardsArray];
+  gameCards.sort(() => 0.5 - Math.random());
+
+  const board = document.getElementById('game-board');
+  const message = document.getElementById('game-message');
+  const resetBtn = document.getElementById('reset-button');
+
+  let firstCard = null;
+  let secondCard = null;
+  let lockBoard = false;
+  let matchedPairs = 0;
+
+  function createCard(card, index) {
+    const cardElement = document.createElement('div');
+    cardElement.classList.add('memory-card');
+    cardElement.style.cssText = `
+      width: 80px;
+      height: 80px;
+      background-color: #004d40;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      cursor: pointer;
+      user-select: none;
+      color: transparent;
+      transition: background-color 0.3s, color 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    `;
+    cardElement.dataset.name = card.name;
+    cardElement.dataset.index = index;
+
+    cardElement.addEventListener('click', flipCard);
+
+    return cardElement;
+  }
+
+  function flipCard() {
+    if (lockBoard) return;
+    if (this === firstCard) return;
+
+    this.style.color = '#fff'; // reveal emoji
+    this.style.backgroundColor = '#00796b';
+
+    this.textContent = cardsArray.find(c => c.name === this.dataset.name).emoji;
+
+    if (!firstCard) {
+      firstCard = this;
+      return;
     }
 
-    gameCards.forEach(card => {
-      const div = document.createElement('div');
-      div.className = 'memory-card';
-      div.dataset.name = card.name;
-      const span = document.createElement('span');
-      span.textContent = card.emoji;
-      div.appendChild(span);
-      div.addEventListener('click', () => flipCard(div));
-      board.appendChild(div);
-    });
+    secondCard = this;
+    checkForMatch();
+  }
 
-    document.getElementById('reset-button').addEventListener('click', () => location.reload());
-  </script>
+  function checkForMatch() {
+    const isMatch = firstCard.dataset.name === secondCard.dataset.name;
+
+    if (isMatch) {
+      matchedPairs++;
+      disableCards();
+      if (matchedPairs === cardsArray.length) {
+        message.textContent = "🎉 Congratulations! You matched all pairs! 🎉";
+      }
+    } else {
+      unflipCards();
+    }
+  }
+
+  function disableCards() {
+    firstCard.removeEventListener('click', flipCard);
+    secondCard.removeEventListener('click', flipCard);
+
+    resetBoard();
+  }
+
+  function unflipCards() {
+    lockBoard = true;
+    setTimeout(() => {
+      firstCard.style.color = 'transparent';
+      firstCard.style.backgroundColor = '#004d40';
+      firstCard.textContent = '';
+
+      secondCard.style.color = 'transparent';
+      secondCard.style.backgroundColor = '#004d40';
+      secondCard.textContent = '';
+
+      resetBoard();
+    }, 1000);
+  }
+
+  function resetBoard() {
+    [firstCard, secondCard] = [null, null];
+    lockBoard = false;
+  }
+
+  function startGame() {
+    matchedPairs = 0;
+    message.textContent = '';
+    board.innerHTML = '';
+    gameCards.sort(() => 0.5 - Math.random());
+
+    gameCards.forEach((card, index) => {
+      const cardElement = createCard(card, index);
+      board.appendChild(cardElement);
+    });
+  }
+
+  resetBtn.addEventListener('click', startGame);
+
+  // Initialize game on load
+  startGame();
+</script>
+
+
+  <section id="fruit-catcher" style="padding: 20px; background: #fff3e0; margin-top: 50px; border-radius: 10px; text-align: center; font-family: 'Arial', sans-serif;">
+  <h2 style="color: #ef6c00;">Catch the Tropical Fruits!</h2>
+  <p style="color: #bf360c;">Use ← and → arrow keys to move the basket. Catch as many fruits as you can!</p>
+
+  <canvas id="catcherCanvas" width="320" height="240" style="background: #a5d6a7; border: 3px solid #66bb6a; border-radius: 10px; display: block; margin: 0 auto;"></canvas>
+
+  <p id="fruitScore" style="font-size: 20px; color: #2e7d32; margin-top: 10px;">Score: 0</p>
+
+  <button onclick="startFruitGame()" style="
+    padding: 8px 20px;
+    background-color: #388e3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  ">Restart Game</button>
+</section>
+
+<script>
+  const fruitCanvas = document.getElementById('catcherCanvas');
+  const fruitCtx = fruitCanvas.getContext('2d');
+  const fruitScoreDisplay = document.getElementById('fruitScore');
+
+  const basketWidth = 60;
+  const basketHeight = 20;
+  let basketX = (fruitCanvas.width - basketWidth) / 2;
+
+  const fruits = ['🍍', '🥥', '🍌', '🥭'];
+  let fallingFruits = [];
+  let score = 0;
+  let gameInterval;
+  let dropInterval;
+  let leftPressed = false;
+  let rightPressed = false;
+
+  function drawBasket() {
+    fruitCtx.fillStyle = '#6d4c41';
+    fruitCtx.fillRect(basketX, fruitCanvas.height - basketHeight - 10, basketWidth, basketHeight);
+  }
+
+  function spawnFruit() {
+    const fruit = {
+      x: Math.random() * (fruitCanvas.width - 24),
+      y: -24,
+      emoji: fruits[Math.floor(Math.random() * fruits.length)],
+      speed: 2 + Math.random() * 2
+    };
+    fallingFruits.push(fruit);
+  }
+
+  function drawFruits() {
+    fruitCtx.font = '24px serif';
+    fallingFruits.forEach(fruit => {
+      fruitCtx.fillText(fruit.emoji, fruit.x, fruit.y);
+    });
+  }
+
+  function updateFruits() {
+    for (let i = 0; i < fallingFruits.length; i++) {
+      const fruit = fallingFruits[i];
+      fruit.y += fruit.speed;
+
+      if (
+        fruit.y > fruitCanvas.height - basketHeight - 30 &&
+        fruit.x > basketX - 12 &&
+        fruit.x < basketX + basketWidth
+      ) {
+        score++;
+        fallingFruits.splice(i, 1);
+        i--;
+        fruitScoreDisplay.textContent = `Score: ${score}`;
+      } else if (fruit.y > fruitCanvas.height) {
+        fallingFruits.splice(i, 1);
+        i--;
+      }
+    }
+  }
+
+  function clearCanvas() {
+    fruitCtx.clearRect(0, 0, fruitCanvas.width, fruitCanvas.height);
+  }
+
+  function moveBasket() {
+    if (leftPressed && basketX > 0) basketX -= 5;
+    if (rightPressed && basketX < fruitCanvas.width - basketWidth) basketX += 5;
+  }
+
+  function gameLoop() {
+    clearCanvas();
+    moveBasket();
+    drawBasket();
+    updateFruits();
+    drawFruits();
+  }
+
+  function startFruitGame() {
+    score = 0;
+    fallingFruits = [];
+    basketX = (fruitCanvas.width - basketWidth) / 2;
+    fruitScoreDisplay.textContent = "Score: 0";
+    clearInterval(gameInterval);
+    clearInterval(dropInterval);
+    gameInterval = setInterval(gameLoop, 30);
+    dropInterval = setInterval(spawnFruit, 1000);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') leftPressed = true;
+    if (e.key === 'ArrowRight') rightPressed = true;
+  });
+
+  document.addEventListener('keyup', (e) => {
+    if (e.key === 'ArrowLeft') leftPressed = false;
+    if (e.key === 'ArrowRight') rightPressed = false;
+  });
+
+  startFruitGame();
+</script>
+<!-- YouTube Video in Top Right Corner -->
+<div class="video-corner">
+  <iframe 
+    src="https://www.youtube.com/embed/PTR8Uo9JMVc?autoplay=1&mute=1&loop=1&playlist=PTR8Uo9JMVc"
+    allow="autoplay; encrypted-media"
+    allowfullscreen
+  ></iframe>
+</div>
+<div class="slideshow-corner">
+  <img src="images/apt1/porch.jpg" class="active" />
+  <img src="images/apt1/bedroom.jpg" />
+  <img src="images/apt1/firepit.jpg" />
+  <img src="images/apt1/bathroom.jpg" />
+  <img src="images/apt1/outside.jpg" />
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slideshow-corner img');
+  let currentSlide = 0;
+
+  setInterval(() => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }, 3000); // Changes slide every 3 seconds
+</script>
+
 </body>
 </html>
