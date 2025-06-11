@@ -206,6 +206,57 @@
 
     <a class="whatsapp" href="https://wa.me/50432436262" target="_blank">Message Us on WhatsApp</a>
 
+    <!-- Link to open modal -->
+<p><a href="#" id="openTerms" style="text-decoration: underline; color: blue;">Read Booking Agreement & Terms</a></p>
+
+<!-- The Modal -->
+<div id="termsModal" style="display:none; position: fixed; z-index: 1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color: rgba(0,0,0,0.5);">
+  <div style="background: white; margin: 10% auto; padding: 20px; border-radius: 8px; max-width: 600px; max-height: 70vh; overflow-y: auto;">
+    <h2>House of Good Vibes Booking Agreement</h2>
+    <p>Thank you for choosing to stay with us! To ensure a smooth and enjoyable experience for everyone, please review and agree to the following terms before booking.</p>
+    <ol>
+      <li><strong>Booking & Payment</strong><br>
+          - A non-refundable deposit of $100 is required to secure your reservation.<br>
+          - The minimum stay is 3 nights.<br>
+          - The remaining balance is due upon arrival in cash or approved payment method.</li>
+      <li><strong>Cancellation & Refunds</strong><br>
+          - The deposit is non-refundable.<br>
+          - Cancellations made less than 14 days before arrival will be charged the full amount of the stay.</li>
+      <li><strong>Guest Occupancy</strong><br>
+          - Maximum occupancy is 2 guests per unit.</li>
+      <li><strong>House Rules</strong><br>
+          - No smoking inside the units. Smoking is allowed outside only.<br>
+          - Quiet hours are from 10 PM to 7 AM.<br>
+          - Please keep the property clean and dispose of trash properly.<br>
+          - No pets allowed without prior approval.</li>
+      <li><strong>Liability & Safety</strong><br>
+          - Guests are responsible for their own safety and belongings.<br>
+          - Property owners are not responsible for accidents, injuries, or loss of personal items.</li>
+      <li><strong>Acknowledgement</strong><br>
+          By booking through this website, guests acknowledge they have read, understood, and agree to these terms.</li>
+      <li><strong>Governing Law</strong><br>
+          This agreement is governed by the laws of Honduras.</li>
+    </ol>
+    <button id="closeTerms" style="margin-top: 15px; padding: 8px 15px;">Close</button>
+  </div>
+</div>
+
+<script>
+  document.getElementById('openTerms').onclick = function(e) {
+    e.preventDefault();
+    document.getElementById('termsModal').style.display = 'block';
+  }
+  document.getElementById('closeTerms').onclick = function() {
+    document.getElementById('termsModal').style.display = 'none';
+  }
+  window.onclick = function(event) {
+    if (event.target == document.getElementById('termsModal')) {
+      document.getElementById('termsModal').style.display = 'none';
+    }
+  }
+</script>
+
+
     <div class="paypal-info" style="text-align:center; margin-bottom:1rem; font-style: italic; color: #555;">
   Minimum stay is 3 nights. A non-refundable $100 deposit secures your booking.<br/>
   Remaining balance is due upon arrival.
