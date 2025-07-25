@@ -410,6 +410,214 @@
 
     resetButton.addEventListener('click', createBoard);
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lainee's Library</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+      background-color: #f7f2ed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 10px;
+      color: #5e4b3c;
+    }
+    #grid {
+      display: grid;
+      grid-template-columns: repeat(7, 50px);
+      gap: 5px;
+      margin-bottom: 20px;
+    }
+    .tile {
+      width: 50px;
+      height: 50px;
+      background-color: #d8cfc4;
+      color: #3a2e25;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+    .tile.selected {
+      background-color: #a69382;
+      transform: scale(1.1);
+    }
+    #wordDisplay {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #3a2e25;
+    }
+    #score {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #3a2e25;
+    }
+    #catProgress {
+      height: 20px;
+      width: 300px;
+      background-color: #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    #catBar {
+      height: 100%;
+      background-color: #cfa8a2;
+      width: 0%;
+    }
+    #catsUnlocked {
+      display: flex;
+      gap: 10px;
+    }
+    .cat {
+      font-size: 32px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lainee's Library</h1>
+  <div id="score">Score: 0</div>
+  <div id="wordDisplay">Selected Word: </div>
+  <div id="grid"></div>
+  <button onclick="submitWord()">Submit Word</button>
+  <div id="catProgress">
+    <div id="catBar"></div>
+  </div>
+  <div id="catsUnlocked"></div>
+
+  <script>
+    const gridSize = 7;
+    const grid = document.getElementById("grid");
+    const wordDisplay = document.getElementById("wordDisplay");
+    const scoreDisplay = document.getElementById("score");
+    const catBar = document.getElementById("catBar");
+    const catsUnlocked = document.getElementById("catsUnlocked");
+
+    let tiles = [];
+    let selectedTiles = [];
+    let currentWord = "";
+    let score = 0;
+    let catProgress = 0;
+    const unlockThreshold = 500;
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    const catIcons = ["😺", "😸", "😹", "😻", "🙀", "😽", "🐱"];
+    let catIndex = 0;
+
+    // Example small dictionary
+    const dictionary = ["CAT", "BOOK", "WORD", "LIBRARY", "LOVE", "PAW", "PAGE", "TAIL", "MEOW"];
+
+    function createGrid() {
+      tiles = [];
+      grid.innerHTML = "";
+      for (let i = 0; i < gridSize * gridSize; i++) {
+        const tile = document.createElement("div");
+        tile.className = "tile";
+        tile.textContent = alphabet[Math.floor(Math.random() * alphabet.length)];
+        tile.dataset.index = i;
+        tile.addEventListener("click", () => selectTile(tile));
+        grid.appendChild(tile);
+        tiles.push(tile);
+      }
+    }
+
+    function selectTile(tile) {
+      if (tile.classList.contains("selected")) return;
+      const index = parseInt(tile.dataset.index);
+      if (selectedTiles.length === 0 || isAdjacent(index, selectedTiles[selectedTiles.length - 1])) {
+        tile.classList.add("selected");
+        selectedTiles.push(index);
+        currentWord += tile.textContent;
+        wordDisplay.textContent = "Selected Word: " + currentWord;
+      }
+    }
+
+    function isAdjacent(index1, index2) {
+      const row1 = Math.floor(index1 / gridSize);
+      const col1 = index1 % gridSize;
+      const row2 = Math.floor(index2 / gridSize);
+      const col2 = index2 % gridSize;
+      return Math.abs(row1 - row2) <= 1 && Math.abs(col1 - col2) <= 1;
+    }
+
+    function submitWord() {
+      if (dictionary.includes(currentWord.toUpperCase())) {
+        score += currentWord.length * 10;
+        scoreDisplay.textContent = "Score: " + score;
+        catProgress += currentWord.length * 10;
+        updateCatBar();
+        removeSelectedTiles();
+      }
+      clearSelection();
+    }
+
+    function updateCatBar() {
+      const percent = (catProgress / unlockThreshold) * 100;
+      catBar.style.width = percent + "%";
+      if (catProgress >= unlockThreshold) {
+        unlockCat();
+        catProgress = 0;
+        catBar.style.width = "0%";
+      }
+    }
+
+    function unlockCat() {
+      const cat = document.createElement("div");
+      cat.className = "cat";
+      cat.textContent = catIcons[catIndex % catIcons.length];
+      catsUnlocked.appendChild(cat);
+      catIndex++;
+    }
+
+    function removeSelectedTiles() {
+      selectedTiles.forEach((index) => {
+        tiles[index].textContent = "";
+      });
+      refillGridFromLeft();
+    }
+
+    function refillGridFromLeft() {
+      for (let row = 0; row < gridSize; row++) {
+        let newRow = [];
+        for (let col = 0; col < gridSize; col++) {
+          const index = row * gridSize + col;
+          const letter = tiles[index].textContent;
+          if (letter !== "") newRow.push(letter);
+        }
+        while (newRow.length < gridSize) {
+          newRow.unshift(alphabet[Math.floor(Math.random() * alphabet.length)]);
+        }
+        for (let col = 0; col < gridSize; col++) {
+          const index = row * gridSize + col;
+          tiles[index].textContent = newRow[col];
+        }
+      }
+    }
+
+    function clearSelection() {
+      selectedTiles.forEach((index) => {
+        tiles[index].classList.remove("selected");
+      });
+      selectedTiles = [];
+      currentWord = "";
+      wordDisplay.textContent = "Selected Word: ";
+    }
+
+    createGrid();
+  </script>
+</body>
+</html>
 
 
 </body>
